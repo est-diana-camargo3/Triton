@@ -6,107 +6,70 @@ public class StrokeDetector : MonoBehaviour
     public HandSide hand;
 
     [Header("Umbrales")]
-    public float pullVelocityThreshold = 1.2f;
-    public float resetDistance = 0.3f;
+    public float velocityThreshold = 1.2f; // un poco más alto para reducir falsos positivos
+
+    [Header("Cooldown")]
+    public float strokeCooldown = 0.5f;
+    private float lastStrokeTime;
 
     [Header("Debug")]
     public float currentVelocity;
+    public Vector3 currentRawVelocity;
     public string currentPhase;
 
-    public System.Action<float> OnStrokeDetected;
+    public System.Action<float, Vector3> OnStrokeDetected;
 
     private OVRInput.Controller controller;
-    private Vector3 lastPosition;
-    private bool armExtended = false;
-
-    // Teclas configurables desde el inspector
-    [Header("Teclado (solo editor)")]
-    public KeyCode simStrokeKey = KeyCode.Q;  // izquierda
-    // La mano derecha usa otra tecla, configúrala en el inspector
 
     void Start()
     {
         controller = (hand == HandSide.Left)
             ? OVRInput.Controller.LTouch
             : OVRInput.Controller.RTouch;
-
-        lastPosition = Vector3.zero;
     }
 
     void Update()
     {
-#if UNITY_EDITOR
-        SimulateInEditor();
-#else
-        DetectFromController();
-#endif
-    }
-
-    void DetectFromController()
-    {
         Vector3 velocity = OVRInput.GetLocalControllerVelocity(controller);
-        Vector3 position = OVRInput.GetLocalControllerPosition(controller);
-
+        currentRawVelocity = velocity;
         currentVelocity = velocity.magnitude;
 
-        if (!armExtended && position.z < lastPosition.z - resetDistance)
-        {
-            armExtended = true;
-            currentPhase = "Extendido - listo para jalar";
-        }
+        bool cooldownOk = Time.time - lastStrokeTime > strokeCooldown;
 
-        if (armExtended && velocity.z > pullVelocityThreshold)
+        if (currentVelocity > velocityThreshold && cooldownOk)
         {
-            float power = Mathf.Clamp(velocity.magnitude, 0f, 5f);
-            TriggerStroke(power);
+            Vector3 strokeDirection = -velocity.normalized;
+            lastStrokeTime = Time.time;
+            currentPhase = "Brazada!";
+            TriggerStroke(currentVelocity, strokeDirection);
         }
         else
         {
-            currentPhase = armExtended ? "Esperando jalón..." : "Esperando extensión";
+            currentPhase = cooldownOk 
+                ? "Esperando movimiento" 
+                : $"Cooldown ({(strokeCooldown - (Time.time - lastStrokeTime)):F1}s)";
         }
 
-        lastPosition = position;
+        if (Time.frameCount % 30 == 0)
+            Debug.Log($"[STROKE-{hand}] vel: {currentVelocity:F3} | fase: {currentPhase}");
     }
 
-    void SimulateInEditor()
+    void TriggerStroke(float power, Vector3 direction)
     {
-        // Simula una brazada completa al presionar la tecla
-        if (Input.GetKeyDown(simStrokeKey))
-        {
-            float simulatedPower = 2.5f;
-            currentVelocity = simulatedPower;
-            currentPhase = "Simulado con teclado";
-            TriggerStroke(simulatedPower);
-        }
-        else
-        {
-            currentPhase = $"Editor: presiona [{simStrokeKey}] para simular";
-            currentVelocity = 0f;
-        }
-    }
-
-    void TriggerStroke(float power)
-    {
-        OnStrokeDetected?.Invoke(power);
-        armExtended = false;
-        currentPhase = $"BRAZADA detectada | power: {power:F2}";
+        OnStrokeDetected?.Invoke(power, direction);
+        Debug.Log($"[STROKE-{hand}] BRAZADA | power: {power:F2} | dir: {direction}");
 
 #if !UNITY_EDITOR
-    // Vibración proporcional a la fuerza de la brazada
-    float hapticAmplitude = Mathf.Clamp01(power / 5f);  // normaliza entre 0 y 1
-    float hapticDuration  = 0.1f;
-
-    OVRInput.SetControllerVibration(hapticAmplitude, hapticAmplitude, controller);
-    Invoke(nameof(StopHaptics), hapticDuration);
+        float hapticAmplitude = Mathf.Clamp01(power / 5f);
+        OVRInput.SetControllerVibration(hapticAmplitude, hapticAmplitude, controller);
+        Invoke(nameof(StopHaptics), 0.1f);
 #endif
-
-        Debug.Log($"[{hand}] Brazada! Power: {power:F2}");
     }
 
     void StopHaptics()
     {
 #if !UNITY_EDITOR
-    OVRInput.SetControllerVibration(0, 0, controller);
+        OVRInput.SetControllerVibration(0, 0, controller);
 #endif
     }
 }

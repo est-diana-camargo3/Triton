@@ -23,34 +23,52 @@ public class SwimmingController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.drag = waterDrag;
-        rb.useGravity = false;   // estamos "flotando"
+        rb.useGravity = false;
 
-        // Suscribirse a eventos de cada mano
-        leftHand.OnStrokeDetected  += (power) => ApplyStroke(power, "Left");
-        rightHand.OnStrokeDetected += (power) => ApplyStroke(power, "Right");
+        // Verificar referencias antes de suscribirse
+        if (leftHand != null)
+        {
+            leftHand.OnStrokeDetected  += (power, dir) => ApplyStroke(power, dir, "Left");
+           
+            Debug.Log("[SWIM] Mano izquierda conectada");
+        }
+        else Debug.LogError("[SWIM] leftHand es NULL - arrastra el StrokeDetector en el inspector");
+
+        if (rightHand != null)
+        {
+            rightHand.OnStrokeDetected += (power, dir) => ApplyStroke(power, dir, "Right");
+            Debug.Log("[SWIM] Mano derecha conectada");
+        }
+        else Debug.LogError("[SWIM] rightHand es NULL - arrastra el StrokeDetector en el inspector");
+
+        Debug.Log($"[SWIM] Rigidbody encontrado: {rb != null} | isKinematic: {rb.isKinematic}");
     }
 
-    void ApplyStroke(float power, string side)
+    void ApplyStroke(float power, Vector3 strokeDirection, string side)
     {
-        // La dirección del impulso es hacia donde mira la cámara
-        Vector3 direction = cameraRig.forward;
-        direction.y *= 0.3f;   // reducir componente vertical para que no suba mucho
-        direction.Normalize();
+        // Convertir dirección local del controller a espacio mundial
+        Vector3 worldDirection = cameraRig.TransformDirection(strokeDirection);
+    
+        // Limitar cuánto afecta el componente vertical (opcional)
+        worldDirection.y *= 0.3f;
+        worldDirection.Normalize();
 
-        Vector3 force = direction * power * strokeForceMultiplier;
+        Vector3 force = worldDirection * power * strokeForceMultiplier;
         rb.AddForce(force, ForceMode.Impulse);
 
-        // Limitar velocidad máxima
         if (rb.velocity.magnitude > maxSpeed)
             rb.velocity = rb.velocity.normalized * maxSpeed;
 
-        totalStrokes++;
-        Debug.Log($"Brazada {side} | Power: {power:F2} | Velocidad actual: {rb.velocity.magnitude:F2}");
+        Debug.Log($"[SWIM] {side} | dir mundo: {worldDirection} | fuerza: {force}");
     }
-
     void Update()
     {
         currentSpeed = rb.velocity.magnitude;
+        
+        if (Time.frameCount % 60 == 0)
+        {
+            Debug.Log($"[SWIM] Posición player: {transform.position}  Velocidad: {currentSpeed:F2}");
+        }
         
         // SOLO PARA TESTING - quitar antes de build final
 // #if UNITY_EDITOR

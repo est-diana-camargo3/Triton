@@ -17,8 +17,8 @@ public class SwimmingDebugUI : MonoBehaviour
         GUILayout.Label($"Velocidad jugador: {swimmer.currentSpeed:F2} m/s");
         GUILayout.Label($"Total brazadas:    {swimmer.totalStrokes}");
         GUILayout.Space(10);
-        GUILayout.Label($"Mano IZQ | vel: {leftHand.currentVelocity:F2} | {leftHand.currentPhase}");
-        GUILayout.Label($"Mano DER | vel: {rightHand.currentVelocity:F2} | {rightHand.currentPhase}");
+        // GUILayout.Label($"Mano IZQ | vel: {leftHand.currentVelocity:F2} | {leftHand.currentPhase}");
+        // GUILayout.Label($"Mano DER | vel: {rightHand.currentVelocity:F2} | {rightHand.currentPhase}");
 
         GUILayout.EndArea();
     }
