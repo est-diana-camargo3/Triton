@@ -781,6 +781,9 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - SonidoBallena
+  - SonidoBrazada
+  - SonidoBurbujas
   - SonidoOceano
   BanksToLoad: []
   LiveUpdatePort: 9264
