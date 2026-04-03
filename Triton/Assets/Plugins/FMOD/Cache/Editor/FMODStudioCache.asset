@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639107865904109673
+  lastModified: 639107882605668985
   FileSizes:
   - Name: Desktop
     Value: 778
@@ -35,10 +35,10 @@ MonoBehaviour:
   Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639107865904067660
+  lastModified: 639107882605611866
   FileSizes:
   - Name: Desktop
-    Value: 1768
+    Value: 212000
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -63,7 +63,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -6752899873599648838}
   cacheVersion: 131858
-  cacheTime: 639107865904109673
+  cacheTime: 639107882605668985
   SerializableEventsDict:
   - key: event:/EventoDePrueba2d
     index: 0
@@ -87,10 +87,10 @@ MonoBehaviour:
     Data4: -2000556917
   Banks:
   - {fileID: -4747548390745226196}
-  IsStream: 0
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 60238
