@@ -755,8 +755,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: 
-  sourceBankPath: 
+  sourceProjectPath: Assets/Fmod/AudioTriton_FMode_001/AudioTriton_FMode_001.fspro
+  sourceBankPath: Assets/Fmod/AudioTriton_FMode_001/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
