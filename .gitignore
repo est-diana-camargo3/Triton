@@ -97,3 +97,11 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+/Triton/Assets
+/Triton/Library
+/Triton/Packages
+/Triton/ProjectSettings/Packages/com.unity.testtools.codecoverage
+/Triton/Temp/__Backupscenes
+Triton/Temp/FSTimeGet-155525cc2120ef4458394020b140a716
+/Triton/Temp
+/Triton/UserSettings
