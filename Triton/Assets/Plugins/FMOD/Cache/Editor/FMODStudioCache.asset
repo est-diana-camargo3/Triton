@@ -55,10 +55,10 @@ MonoBehaviour:
   Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639107983003136526
+  lastModified: 639108038646824454
   FileSizes:
   - Name: Desktop
-    Value: 778
+    Value: 888
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -75,18 +75,22 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: -3622086726494018354}
   - {fileID: 6118412544308641347}
+  - {fileID: 4573567650072841411}
   EditorEvents:
   - {fileID: 9172844425499345315}
+  - {fileID: 7046124902469851916}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6118412544308641347}
   StringsBanks:
   - {fileID: -3622086726494018354}
   cacheVersion: 131858
-  cacheTime: 639107983003136526
+  cacheTime: 639108072718747305
   SerializableEventsDict:
   - key: event:/EventoDePrueba2d
     index: 0
+  - key: event:/SonidoOceano
+    index: 1
 --- !u!114 &3630935594941352071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +118,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 60238
+--- !u!114 &4573567650072841411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SonidoOceano.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoOceano.bank
+  Name: SonidoOceano
+  StudioPath: bank:/SonidoOceano
+  lastModified: 639108072718747305
+  FileSizes:
+  - Name: Desktop
+    Value: 108928
+  Exists: 1
 --- !u!114 &6118412544308641347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,11 +153,38 @@ MonoBehaviour:
   Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639107983003111745
+  lastModified: 639108038646790057
   FileSizes:
   - Name: Desktop
     Value: 212000
   Exists: 1
+--- !u!114 &7046124902469851916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SonidoOceano
+  m_EditorClassIdentifier: 
+  Path: event:/SonidoOceano
+  Guid:
+    Data1: 956345222
+    Data2: 1191481094
+    Data3: -1410541407
+    Data4: -1716765693
+  Banks:
+  - {fileID: 4573567650072841411}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 13624
 --- !u!114 &9172844425499345315
 MonoBehaviour:
   m_ObjectHideFlags: 0
