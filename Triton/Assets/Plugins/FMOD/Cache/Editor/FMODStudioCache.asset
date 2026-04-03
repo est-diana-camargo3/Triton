@@ -40,6 +40,26 @@ MonoBehaviour:
   - Name: Desktop
     Value: 212000
   Exists: 1
+--- !u!114 &-3622086726494018354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639107983003136526
+  FileSizes:
+  - Name: Desktop
+    Value: 778
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,17 +73,17 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -6752899873599648838}
-  - {fileID: -4747548390745226196}
+  - {fileID: -3622086726494018354}
+  - {fileID: 6118412544308641347}
   EditorEvents:
-  - {fileID: 3630935594941352071}
+  - {fileID: 9172844425499345315}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -4747548390745226196}
+  - {fileID: 6118412544308641347}
   StringsBanks:
-  - {fileID: -6752899873599648838}
+  - {fileID: -3622086726494018354}
   cacheVersion: 131858
-  cacheTime: 639107882605668985
+  cacheTime: 639107983003136526
   SerializableEventsDict:
   - key: event:/EventoDePrueba2d
     index: 0
@@ -87,6 +107,53 @@ MonoBehaviour:
     Data4: -2000556917
   Banks:
   - {fileID: -4747548390745226196}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 60238
+--- !u!114 &6118412544308641347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639107983003111745
+  FileSizes:
+  - Name: Desktop
+    Value: 212000
+  Exists: 1
+--- !u!114 &9172844425499345315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EventoDePrueba2d
+  m_EditorClassIdentifier: 
+  Path: event:/EventoDePrueba2d
+  Guid:
+    Data1: -1990312161
+    Data2: 1132417196
+    Data3: -859440483
+    Data4: -2000556917
+  Banks:
+  - {fileID: 6118412544308641347}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
