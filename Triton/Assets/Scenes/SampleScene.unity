@@ -319,7 +319,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -482,13 +482,17 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991455416}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.21996021, y: -0.3607022, z: 0.08795093, w: 0.9020954}
+  m_LocalPosition: {x: 0, y: 0.9, z: 0}
   m_LocalScale: {x: 9.744415, y: 9.744415, z: 9.744415}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< Updated upstream
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+  m_LocalEulerAnglesHint: {x: -19.475, y: -46.996, z: 19.671}
+>>>>>>> Stashed changes
 --- !u!114 &991455421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,8 +514,13 @@ MonoBehaviour:
       Data4: -2000556917
     Path: event:/EventoDePrueba2d
   Event: 
+<<<<<<< Updated upstream
   EventPlayTrigger: 16
   EventStopTrigger: 0
+=======
+  EventPlayTrigger: 13
+  EventStopTrigger: 14
+>>>>>>> Stashed changes
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
