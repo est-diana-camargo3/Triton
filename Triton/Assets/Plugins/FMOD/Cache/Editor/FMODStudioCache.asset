@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoBallena.bank
   Name: SonidoBallena
   StudioPath: bank:/SonidoBallena
-  lastModified: 639108345498931225
+  lastModified: 639108398905189967
   FileSizes:
   - Name: Desktop
     Value: 1454560
@@ -122,10 +122,10 @@ MonoBehaviour:
   Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoBrazada.bank
   Name: SonidoBrazada
   StudioPath: bank:/SonidoBrazada
-  lastModified: 639108345498165470
+  lastModified: 639108410021961430
   FileSizes:
   - Name: Desktop
-    Value: 11311296
+    Value: 11311328
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -157,7 +157,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -3622086726494018354}
   cacheVersion: 131858
-  cacheTime: 639108345498931225
+  cacheTime: 639108410021961430
   SerializableEventsDict:
   - key: event:/SonidoOceano
     index: 0
@@ -165,6 +165,8 @@ MonoBehaviour:
     index: 1
   - key: event:/SonidoBurbujas
     index: 2
+  - key: event:/SonidoBallena
+    index: 3
 --- !u!114 &588917424164914197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,10 +236,10 @@ MonoBehaviour:
   Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoBurbujas.bank
   Name: SonidoBurbujas
   StudioPath: bank:/SonidoBurbujas
-  lastModified: 639108345498545815
+  lastModified: 639108409057400810
   FileSizes:
   - Name: Desktop
-    Value: 1243008
+    Value: 1243168
   Exists: 1
 --- !u!114 &3630935594941352071
 MonoBehaviour:

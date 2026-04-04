@@ -5,7 +5,7 @@
 			<value>SonidoBurbujas</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>5</value>
 		</property>
 		<relationship name="folder">
 			<destination>{73d07a2f-847f-4fb8-938e-3907a6a8c2d0}</destination>
@@ -27,7 +27,6 @@
 		</relationship>
 		<relationship name="groupTracks">
 			<destination>{d249f8c8-44da-4528-aa30-7272252055a6}</destination>
-			<destination>{c003fe27-6759-4cc2-ba6a-0ab1415e401e}</destination>
 		</relationship>
 		<relationship name="timeline">
 			<destination>{d5d69518-dc70-4d43-9bc0-767624507ac7}</destination>
@@ -70,11 +69,6 @@
 			<destination>{cc6622fa-1c41-4714-a591-686197142fc2}</destination>
 		</relationship>
 	</object>
-	<object class="GroupTrack" id="{c003fe27-6759-4cc2-ba6a-0ab1415e401e}">
-		<relationship name="mixerGroup">
-			<destination>{2056ad12-d839-4526-8ecb-e8e95f67c1e1}</destination>
-		</relationship>
-	</object>
 	<object class="Timeline" id="{d5d69518-dc70-4d43-9bc0-767624507ac7}">
 		<relationship name="modules">
 			<destination>{2f38eddf-f3dd-4455-a55c-7d0a814d4035}</destination>
@@ -84,6 +78,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{da1765a3-58ca-45ec-ad79-52b7cd0b41c4}">
+		<property name="volume">
+			<value>10</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{5b5151ed-2d26-4441-b6ce-6c6c4c0d5149}</destination>
 		</relationship>
@@ -142,20 +139,6 @@
 			<destination>{da1765a3-58ca-45ec-ad79-52b7cd0b41c4}</destination>
 		</relationship>
 	</object>
-	<object class="EventMixerGroup" id="{2056ad12-d839-4526-8ecb-e8e95f67c1e1}">
-		<property name="name">
-			<value>Audio 2</value>
-		</property>
-		<relationship name="effectChain">
-			<destination>{5c87ff6a-db47-4773-8e98-11bbdbf44f28}</destination>
-		</relationship>
-		<relationship name="panner">
-			<destination>{a0420ab0-3eb1-43b7-b17c-cf446c6cf64c}</destination>
-		</relationship>
-		<relationship name="output">
-			<destination>{da1765a3-58ca-45ec-ad79-52b7cd0b41c4}</destination>
-		</relationship>
-	</object>
 	<object class="LoopRegion" id="{1591d533-cea9-4209-88b4-385f318fc84d}">
 		<property name="position">
 			<value>0</value>
@@ -174,6 +157,7 @@
 		<relationship name="effects">
 			<destination>{d7593b71-f5da-4396-94bb-0632560841ae}</destination>
 			<destination>{40b5c4ff-2c73-49d8-b5c8-250ea73a9c96}</destination>
+			<destination>{5e5e3591-4c7d-423d-807b-b56b8cafcd68}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{96b9a0b7-2f69-492c-bac0-ea8731b63f26}" />
@@ -201,14 +185,20 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{6871bbdb-d00d-4b69-bd33-40bb98deecea}" />
-	<object class="MixerBusEffectChain" id="{5c87ff6a-db47-4773-8e98-11bbdbf44f28}">
-		<relationship name="effects">
-			<destination>{43151c76-2bc4-47ff-9288-9efbdedd1fd2}</destination>
-		</relationship>
-	</object>
-	<object class="MixerBusPanner" id="{a0420ab0-3eb1-43b7-b17c-cf446c6cf64c}" />
 	<object class="MixerBusFader" id="{d7593b71-f5da-4396-94bb-0632560841ae}" />
-	<object class="SpatialiserEffect" id="{40b5c4ff-2c73-49d8-b5c8-250ea73a9c96}" />
+	<object class="SpatialiserEffect" id="{40b5c4ff-2c73-49d8-b5c8-250ea73a9c96}">
+		<property name="maximumDistance">
+			<value>10000</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+	</object>
+	<object class="PannerEffect" id="{5e5e3591-4c7d-423d-807b-b56b8cafcd68}">
+		<property name="overridingOutputFormat">
+			<value>5</value>
+		</property>
+	</object>
 	<object class="SingleSound" id="{acd3d040-bace-4682-a065-845b29e32e75}">
 		<relationship name="audioFile">
 			<destination>{08e09762-e655-49ab-90e5-5d57511b8736}</destination>
@@ -274,7 +264,6 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{c4f8c2cd-509d-4f02-b450-560fab504590}" />
-	<object class="MixerBusFader" id="{43151c76-2bc4-47ff-9288-9efbdedd1fd2}" />
 	<object class="AutomationPoint" id="{7adf6c74-7ab0-4ca3-9f14-60ab87c026fd}">
 		<property name="position">
 			<value>2.3000000000000003</value>
