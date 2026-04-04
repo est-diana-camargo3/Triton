@@ -91,6 +91,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{5e25f1eb-73f4-4405-b856-40db7e4a4caf}">
+		<property name="volume">
+			<value>-3.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{b8083cc0-8efa-4ef6-9e0e-3375ca4b02e6}</destination>
 		</relationship>
@@ -237,27 +240,28 @@
 			<destination>{4a021101-c35c-4795-a2e2-e31bb4eb6f6a}</destination>
 			<destination>{a8d5dcee-280f-4a3c-ac13-5e7b777b5e1a}</destination>
 			<destination>{5f5a72c9-d428-4c18-8040-da5e946c8b6e}</destination>
+			<destination>{b4615119-521a-45e8-aeb2-376796350b9a}</destination>
 		</relationship>
 	</object>
 	<object class="LowpassEffect" id="{dae71d63-6d2c-4ca9-b3ac-5d54816d55d7}">
 		<property name="cutoff">
-			<value>600</value>
+			<value>100</value>
 		</property>
 	</object>
 	<object class="HighpassEffect" id="{870aefaa-4476-40fb-b1c0-6951c6657de3}">
 		<property name="cutoff">
-			<value>95</value>
+			<value>80</value>
 		</property>
 	</object>
 	<object class="PitchShifterEffect" id="{fabe0188-5e34-40d8-9c52-fe22b8d6b3ea}">
 		<property name="pitch">
-			<value>0.629999995</value>
+			<value>0.699999988</value>
 		</property>
 		<property name="fftSize">
 			<value>620</value>
 		</property>
 		<property name="overlap">
-			<value>32</value>
+			<value>19.2000008</value>
 		</property>
 	</object>
 	<object class="SFXReverbEffect" id="{c6d843f0-2d0d-4787-be2b-115fe472ac77}">
@@ -279,11 +283,12 @@
 			<destination>{361fde4a-d094-401c-8a07-21ac78a0445f}</destination>
 			<destination>{9a1326dd-3a41-402c-b3da-d1cb6a1dcb34}</destination>
 			<destination>{fa59ddcc-7d75-494d-978c-6f03666e0242}</destination>
+			<destination>{bd6ffa59-f6a8-4856-b545-3ea45697bacf}</destination>
 		</relationship>
 	</object>
 	<object class="LowpassEffect" id="{4899be72-f7ee-4c8c-8bfd-a94c5df66c68}">
 		<property name="cutoff">
-			<value>140</value>
+			<value>100</value>
 		</property>
 		<property name="resonance">
 			<value>1.13999999</value>
@@ -291,7 +296,7 @@
 	</object>
 	<object class="HighpassEffect" id="{91651751-abfa-4dd6-9366-ed54b12e3844}">
 		<property name="cutoff">
-			<value>380</value>
+			<value>10</value>
 		</property>
 		<property name="resonance">
 			<value>1.01999998</value>
@@ -299,7 +304,7 @@
 	</object>
 	<object class="SFXReverbEffect" id="{561f00c7-7ba6-4956-9715-c15319873401}">
 		<property name="decayTime">
-			<value>280</value>
+			<value>140</value>
 		</property>
 		<property name="lowShelfFrequency">
 			<value>94</value>
@@ -319,10 +324,13 @@
 	</object>
 	<object class="AutomationPoint" id="{454d6c81-8e7b-4407-bec9-f99ea4470b47}">
 		<property name="position">
-			<value>0.20000000000000001</value>
+			<value>0.10000000000000001</value>
 		</property>
 		<property name="value">
-			<value>-54</value>
+			<value>-50</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.191780671</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{4a021101-c35c-4795-a2e2-e31bb4eb6f6a}">
@@ -333,26 +341,37 @@
 			<value>10</value>
 		</property>
 		<property name="curveShape">
-			<value>-0.420390546</value>
+			<value>0.676220179</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{a8d5dcee-280f-4a3c-ac13-5e7b777b5e1a}">
 		<property name="position">
-			<value>0.38</value>
+			<value>0.26000000000000001</value>
 		</property>
 		<property name="value">
-			<value>-3</value>
+			<value>-15</value>
 		</property>
 		<property name="curveShape">
-			<value>0.0565054715</value>
+			<value>-0.383954763</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{5f5a72c9-d428-4c18-8040-da5e946c8b6e}">
 		<property name="position">
-			<value>0.80000000000000004</value>
+			<value>0.90000000000000002</value>
 		</property>
 		<property name="value">
-			<value>-65</value>
+			<value>-55</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{b4615119-521a-45e8-aeb2-376796350b9a}">
+		<property name="position">
+			<value>0.66000000000000003</value>
+		</property>
+		<property name="value">
+			<value>-10</value>
+		</property>
+		<property name="curveShape">
+			<value>0.0469280258</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{a7aaa565-22a2-43ff-82f7-eaba12eb28c4}">
@@ -365,13 +384,13 @@
 	</object>
 	<object class="AutomationPoint" id="{7049eace-eecb-4561-83af-4a9988ada3f8}">
 		<property name="position">
-			<value>0.52000000000000002</value>
+			<value>0.54000000000000004</value>
 		</property>
 		<property name="value">
-			<value>5</value>
+			<value>8</value>
 		</property>
 		<property name="curveShape">
-			<value>-0.433695763</value>
+			<value>0.441357136</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{361fde4a-d094-401c-8a07-21ac78a0445f}">
@@ -384,18 +403,29 @@
 	</object>
 	<object class="AutomationPoint" id="{9a1326dd-3a41-402c-b3da-d1cb6a1dcb34}">
 		<property name="position">
-			<value>0.60000000000000009</value>
+			<value>0.62</value>
 		</property>
 		<property name="value">
-			<value>-56</value>
+			<value>-50</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{fa59ddcc-7d75-494d-978c-6f03666e0242}">
 		<property name="position">
-			<value>0.44</value>
+			<value>0.46000000000000002</value>
 		</property>
 		<property name="value">
-			<value>-50</value>
+			<value>10</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.463888675</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{bd6ffa59-f6a8-4856-b545-3ea45697bacf}">
+		<property name="position">
+			<value>0.38</value>
+		</property>
+		<property name="value">
+			<value>3</value>
 		</property>
 	</object>
 </objects>
