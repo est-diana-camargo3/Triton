@@ -1,0 +1,565 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8954344307381536419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SonidoBurbujas
+  m_EditorClassIdentifier: 
+  Path: event:/SonidoBurbujas
+  Guid:
+    Data1: -169025032
+    Data2: 1277544304
+    Data3: 110434962
+    Data4: 2012009428
+  Banks:
+  - {fileID: 3137905604960515638}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5000
+--- !u!114 &-6990357485062703840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SonidoBurbujas
+  m_EditorClassIdentifier: 
+  Path: event:/SonidoBurbujas
+  Guid:
+    Data1: -169025032
+    Data2: 1277544304
+    Data3: 110434962
+    Data4: 2012009428
+  Banks:
+  - {fileID: 1612981048115754535}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5000
+--- !u!114 &-6921266530588362016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SonidoBallena.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoBallena.bank
+  Name: SonidoBallena
+  StudioPath: bank:/SonidoBallena
+  lastModified: 639108398905189967
+  FileSizes:
+  - Name: Desktop
+    Value: 1454560
+  Exists: 1
+--- !u!114 &-6752899873599648838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639107882605668985
+  FileSizes:
+  - Name: Desktop
+    Value: 778
+  Exists: 1
+--- !u!114 &-6670087879828858460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SonidoOceano.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoOceano.bank
+  Name: SonidoOceano
+  StudioPath: bank:/SonidoOceano
+  lastModified: 639116837516500042
+  FileSizes:
+  - Name: Desktop
+    Value: 108896
+  Exists: 1
+--- !u!114 &-4747548390745226196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639107882605611866
+  FileSizes:
+  - Name: Desktop
+    Value: 212000
+  Exists: 1
+--- !u!114 &-3622086726494018354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639108345497105707
+  FileSizes:
+  - Name: Desktop
+    Value: 1102
+  Exists: 1
+--- !u!114 &-3000277364007575700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639116837206768785
+  FileSizes:
+  - Name: Desktop
+    Value: 1102
+  Exists: 1
+--- !u!114 &-2260944431824877607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SonidoBrazada
+  m_EditorClassIdentifier: 
+  Path: event:/SonidoBrazada
+  Guid:
+    Data1: -1806125456
+    Data2: 1214672048
+    Data3: -942239046
+    Data4: 1970893376
+  Banks:
+  - {fileID: 5852784771622717092}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &-1087793495661525655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SonidoBrazada.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoBrazada.bank
+  Name: SonidoBrazada
+  StudioPath: bank:/SonidoBrazada
+  lastModified: 639108410021961430
+  FileSizes:
+  - Name: Desktop
+    Value: 11311328
+  Exists: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -3000277364007575700}
+  - {fileID: 4211743791626438131}
+  - {fileID: 7960341148415949314}
+  - {fileID: 5852784771622717092}
+  - {fileID: 3137905604960515638}
+  - {fileID: -6670087879828858460}
+  EditorEvents:
+  - {fileID: 7282220763730266750}
+  - {fileID: -2260944431824877607}
+  - {fileID: -8954344307381536419}
+  - {fileID: 7522687616349632304}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 4211743791626438131}
+  StringsBanks:
+  - {fileID: -3000277364007575700}
+  cacheVersion: 131858
+  cacheTime: 639116837516500042
+  SerializableEventsDict:
+  - key: event:/SonidoBallena
+    index: 0
+  - key: event:/SonidoBrazada
+    index: 1
+  - key: event:/SonidoBurbujas
+    index: 2
+  - key: event:/SonidoOceano
+    index: 3
+--- !u!114 &588917424164914197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SonidoBallena
+  m_EditorClassIdentifier: 
+  Path: event:/SonidoBallena
+  Guid:
+    Data1: 1194644235
+    Data2: 1244812250
+    Data3: 1052554391
+    Data4: 790886836
+  Banks:
+  - {fileID: -6921266530588362016}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8000
+--- !u!114 &1464373654744291330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SonidoBrazada
+  m_EditorClassIdentifier: 
+  Path: event:/SonidoBrazada
+  Guid:
+    Data1: -1806125456
+    Data2: 1214672048
+    Data3: -942239046
+    Data4: 1970893376
+  Banks:
+  - {fileID: -1087793495661525655}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &1612981048115754535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SonidoBurbujas.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoBurbujas.bank
+  Name: SonidoBurbujas
+  StudioPath: bank:/SonidoBurbujas
+  lastModified: 639108409057400810
+  FileSizes:
+  - Name: Desktop
+    Value: 1243168
+  Exists: 1
+--- !u!114 &3137905604960515638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SonidoBurbujas.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoBurbujas.bank
+  Name: SonidoBurbujas
+  StudioPath: bank:/SonidoBurbujas
+  lastModified: 639116837512595251
+  FileSizes:
+  - Name: Desktop
+    Value: 1243168
+  Exists: 1
+--- !u!114 &3630935594941352071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EventoDePrueba2d
+  m_EditorClassIdentifier: 
+  Path: event:/EventoDePrueba2d
+  Guid:
+    Data1: -1990312161
+    Data2: 1132417196
+    Data3: -859440483
+    Data4: -2000556917
+  Banks:
+  - {fileID: -4747548390745226196}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 60238
+--- !u!114 &4211743791626438131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639116837206728119
+  FileSizes:
+  - Name: Desktop
+    Value: 1074
+  Exists: 1
+--- !u!114 &4573567650072841411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SonidoOceano.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoOceano.bank
+  Name: SonidoOceano
+  StudioPath: bank:/SonidoOceano
+  lastModified: 639108227959374008
+  FileSizes:
+  - Name: Desktop
+    Value: 108896
+  Exists: 1
+--- !u!114 &5852784771622717092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SonidoBrazada.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoBrazada.bank
+  Name: SonidoBrazada
+  StudioPath: bank:/SonidoBrazada
+  lastModified: 639116837512065123
+  FileSizes:
+  - Name: Desktop
+    Value: 11311328
+  Exists: 1
+--- !u!114 &6118412544308641347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639108345497070119
+  FileSizes:
+  - Name: Desktop
+    Value: 1074
+  Exists: 1
+--- !u!114 &7046124902469851916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SonidoOceano
+  m_EditorClassIdentifier: 
+  Path: event:/SonidoOceano
+  Guid:
+    Data1: 956345222
+    Data2: 1191481094
+    Data3: -1410541407
+    Data4: -1716765693
+  Banks:
+  - {fileID: 4573567650072841411}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 13624
+--- !u!114 &7282220763730266750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SonidoBallena
+  m_EditorClassIdentifier: 
+  Path: event:/SonidoBallena
+  Guid:
+    Data1: 1194644235
+    Data2: 1244812250
+    Data3: 1052554391
+    Data4: 790886836
+  Banks:
+  - {fileID: 7960341148415949314}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8000
+--- !u!114 &7522687616349632304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SonidoOceano
+  m_EditorClassIdentifier: 
+  Path: event:/SonidoOceano
+  Guid:
+    Data1: 956345222
+    Data2: 1191481094
+    Data3: -1410541407
+    Data4: -1716765693
+  Banks:
+  - {fileID: -6670087879828858460}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 13624
+--- !u!114 &7960341148415949314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SonidoBallena.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoBallena.bank
+  Name: SonidoBallena
+  StudioPath: bank:/SonidoBallena
+  lastModified: 639116837241295111
+  FileSizes:
+  - Name: Desktop
+    Value: 1454560
+  Exists: 1
