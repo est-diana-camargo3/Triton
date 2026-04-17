@@ -3,12 +3,12 @@
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
 .utmp/
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-[Ll]ogs/
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 *.log
 
@@ -18,7 +18,7 @@
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
-[Mm]emoryCaptures/
+/[Mm]emoryCaptures/
 
 # Recordings can get excessive in size
 /[Rr]ecordings/
@@ -97,8 +97,5 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
-Triton/Temp/FSTimeGet-15c7ea959f17d1c4bb2c0b8187cbe26e
-Triton/Temp/FSTimeGet-34db9f484b31c9b4082787a5a3950242
-Triton/Temp/FSTimeGet-c106a28fef0aaad42b1462ead6e5375b
-Triton/Temp/UnityLockfile
-Triton/Temp/workerlic
+/Triton/Library
+/Triton/Temp

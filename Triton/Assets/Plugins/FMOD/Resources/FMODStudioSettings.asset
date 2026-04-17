@@ -781,10 +781,9 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
-  - SonidoBallena
-  - SonidoBrazada
-  - SonidoBurbujas
-  - SonidoOceano
+  - Ambience
+  - Music
+  - VFX
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

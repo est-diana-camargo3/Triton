@@ -4,7 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/PruebaTecnica.unity
+    guid: 1780009ea5b275348b1bbe0c326cd34c
+  - enabled: 0
+    path: Assets/Scenes/PruebaEnviroment.unity
+    guid: 05543b020d173ad4db94d02258cb4d21
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 959caaa5f4bb93b4b84fa5cce4e60fef, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 905ef201ec13d854193aa55ecf3ad292, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 2b3b10b357e661748ac955bbbcaf9bb1, type: 2}
