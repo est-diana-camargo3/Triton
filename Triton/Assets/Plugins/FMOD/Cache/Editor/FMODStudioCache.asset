@@ -19,7 +19,7 @@ MonoBehaviour:
     Data3: 110434962
     Data4: 2012009428
   Banks:
-  - {fileID: 3137905604960515638}
+  - {fileID: 5182870669840606199}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -27,6 +27,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5000
+--- !u!114 &-8271898749010957855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Ambience.bank
+  Name: Ambience
+  StudioPath: bank:/Ambience
+  lastModified: 639118450495419189
+  FileSizes:
+  - Name: Desktop
+    Value: 108768
+  Exists: 1
 --- !u!114 &-6990357485062703840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,26 +114,6 @@ MonoBehaviour:
   - Name: Desktop
     Value: 778
   Exists: 1
---- !u!114 &-6670087879828858460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SonidoOceano.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoOceano.bank
-  Name: SonidoOceano
-  StudioPath: bank:/SonidoOceano
-  lastModified: 639116849431270704
-  FileSizes:
-  - Name: Desktop
-    Value: 108896
-  Exists: 1
 --- !u!114 &-4747548390745226196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,10 +169,10 @@ MonoBehaviour:
   Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639116837206768785
+  lastModified: 639118446710556059
   FileSizes:
   - Name: Desktop
-    Value: 1102
+    Value: 1042
   Exists: 1
 --- !u!114 &-2260944431824877607
 MonoBehaviour:
@@ -193,7 +193,7 @@ MonoBehaviour:
     Data3: -942239046
     Data4: 1970893376
   Banks:
-  - {fileID: 5852784771622717092}
+  - {fileID: 5182870669840606199}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -236,10 +236,9 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: -3000277364007575700}
   - {fileID: 4211743791626438131}
-  - {fileID: 7960341148415949314}
-  - {fileID: 5852784771622717092}
-  - {fileID: 3137905604960515638}
-  - {fileID: -6670087879828858460}
+  - {fileID: -8271898749010957855}
+  - {fileID: 3014992658842762550}
+  - {fileID: 5182870669840606199}
   EditorEvents:
   - {fileID: 7282220763730266750}
   - {fileID: -2260944431824877607}
@@ -251,7 +250,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -3000277364007575700}
   cacheVersion: 131858
-  cacheTime: 639116849431270704
+  cacheTime: 639118450495419189
   SerializableEventsDict:
   - key: event:/SonidoBallena
     index: 0
@@ -335,7 +334,7 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1243168
   Exists: 1
---- !u!114 &3137905604960515638
+--- !u!114 &3014992658842762550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -345,15 +344,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SonidoBurbujas.bank
+  m_Name: bank:/Music.bank
   m_EditorClassIdentifier: 
-  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoBurbujas.bank
-  Name: SonidoBurbujas
-  StudioPath: bank:/SonidoBurbujas
-  lastModified: 639116849427903891
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 639118446711923143
   FileSizes:
   - Name: Desktop
-    Value: 1243168
+    Value: 506
   Exists: 1
 --- !u!114 &3630935594941352071
 MonoBehaviour:
@@ -397,7 +396,7 @@ MonoBehaviour:
   Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639116837206728119
+  lastModified: 639118446710526025
   FileSizes:
   - Name: Desktop
     Value: 1074
@@ -422,7 +421,7 @@ MonoBehaviour:
   - Name: Desktop
     Value: 108896
   Exists: 1
---- !u!114 &5852784771622717092
+--- !u!114 &5182870669840606199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -432,15 +431,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SonidoBrazada.bank
+  m_Name: bank:/VFX.bank
   m_EditorClassIdentifier: 
-  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoBrazada.bank
-  Name: SonidoBrazada
-  StudioPath: bank:/SonidoBrazada
-  lastModified: 639116849427423951
+  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/VFX.bank
+  Name: VFX
+  StudioPath: bank:/VFX
+  lastModified: 639118446711869900
   FileSizes:
   - Name: Desktop
-    Value: 11311328
+    Value: 12768768
   Exists: 1
 --- !u!114 &6118412544308641347
 MonoBehaviour:
@@ -508,7 +507,7 @@ MonoBehaviour:
     Data3: 1052554391
     Data4: 790886836
   Banks:
-  - {fileID: 7960341148415949314}
+  - {fileID: 5182870669840606199}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -535,7 +534,7 @@ MonoBehaviour:
     Data3: -1410541407
     Data4: -1716765693
   Banks:
-  - {fileID: -6670087879828858460}
+  - {fileID: -8271898749010957855}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -543,23 +542,3 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 13624
---- !u!114 &7960341148415949314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SonidoBallena.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/SonidoBallena.bank
-  Name: SonidoBallena
-  StudioPath: bank:/SonidoBallena
-  lastModified: 639116849210323325
-  FileSizes:
-  - Name: Desktop
-    Value: 1454560
-  Exists: 1

@@ -30,6 +30,13 @@ public class StrokeDetector : MonoBehaviour
 
     void Update()
     {
+        float trigger = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, controller);
+        if (trigger < 0.8f)
+        {
+            currentPhase = "Gatillo no presionado";
+            return;
+        }
+
         Vector3 velocity = OVRInput.GetLocalControllerVelocity(controller);
         currentRawVelocity = velocity;
         currentVelocity = velocity.magnitude;

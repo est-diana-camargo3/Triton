@@ -10,32 +10,38 @@
     "m_KnownProcessesForSerialization": [
         {
             "deviceId": "230YC01DB001N0",
-            "name": "com.oculus.xrstreamingclient",
-            "processId": 10669,
-            "exited": true
+            "name": "com.oculus.vrshell",
+            "processId": 3241,
+            "exited": false
         },
         {
             "deviceId": "230YC01DB001N0",
             "name": "com.oculus.os.clearactivity",
-            "processId": 16951,
-            "exited": true
-        },
-        {
-            "deviceId": "230YC01DB001N0",
-            "name": "com.DefaultCompany.Triton",
-            "processId": 20285,
-            "exited": true
-        },
-        {
-            "deviceId": "230YC01DB001N0",
-            "name": "com.oculus.systemux:SystemUX",
-            "processId": 4490,
+            "processId": 17448,
             "exited": false
         },
         {
             "deviceId": "230YC01DB001N0",
             "name": "com.DefaultCompany.Triton",
-            "processId": 5221,
+            "processId": 29623,
+            "exited": true
+        },
+        {
+            "deviceId": "230YC01DB001N0",
+            "name": "com.DefaultCompany.Triton",
+            "processId": 31355,
+            "exited": true
+        },
+        {
+            "deviceId": "230YC01DB001N0",
+            "name": "com.DefaultCompany.Triton",
+            "processId": 864,
+            "exited": true
+        },
+        {
+            "deviceId": "230YC01DB001N0",
+            "name": "com.DefaultCompany.Triton",
+            "processId": 9421,
             "exited": true
         }
     ],
