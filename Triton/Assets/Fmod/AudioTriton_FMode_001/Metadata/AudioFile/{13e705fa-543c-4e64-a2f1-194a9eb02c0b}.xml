@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{13e705fa-543c-4e64-a2f1-194a9eb02c0b}">
+		<property name="assetPath">
+			<value>BaseRuidoCafe.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>600.03265306122444</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4390e2d9-7f84-4357-b7f2-54a9135486ab}</destination>
+		</relationship>
+	</object>
+</objects>
