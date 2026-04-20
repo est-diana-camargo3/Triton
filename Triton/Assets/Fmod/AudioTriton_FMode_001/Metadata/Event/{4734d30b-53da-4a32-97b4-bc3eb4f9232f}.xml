@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{4734d30b-53da-4a32-97b4-bc3eb4f9232f}">
 		<property name="name">
-			<value>SonidoBallena</value>
+			<value>Sonid  oBallena</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -76,7 +76,7 @@
 			<destination>{b2a8ae56-69a8-42a5-867b-98dee4641b0a}</destination>
 		</relationship>
 		<relationship name="modules">
-			<destination>{db4cc354-aaca-41fe-acf0-be23a2f5252f}</destination>
+			<destination>{29472df0-f6c2-4da1-9072-48aa1c40168e}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{c6cc0fb2-4f90-49f5-b0ea-234cb7b6c48d}</destination>
@@ -85,7 +85,7 @@
 	<object class="Timeline" id="{4c519a85-21d4-4e30-a033-776440bb892e}">
 		<relationship name="modules">
 			<destination>{b6581d4d-0e69-4c3c-be94-1c1244abfebb}</destination>
-			<destination>{db4cc354-aaca-41fe-acf0-be23a2f5252f}</destination>
+			<destination>{29472df0-f6c2-4da1-9072-48aa1c40168e}</destination>
 		</relationship>
 		<relationship name="markers">
 			<destination>{b28cff94-10c3-4771-bc87-620a8751d62b}</destination>
@@ -154,12 +154,9 @@
 			<destination>{c6e06fb4-6901-4903-81ec-88db4061b255}</destination>
 		</relationship>
 	</object>
-	<object class="SingleSound" id="{db4cc354-aaca-41fe-acf0-be23a2f5252f}">
+	<object class="SingleSound" id="{29472df0-f6c2-4da1-9072-48aa1c40168e}">
 		<property name="length">
-			<value>8</value>
-		</property>
-		<property name="volume">
-			<value>-35</value>
+			<value>60.238367346938773</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{7c279671-5d2c-4339-b3e3-f69424dfa20b}</destination>
