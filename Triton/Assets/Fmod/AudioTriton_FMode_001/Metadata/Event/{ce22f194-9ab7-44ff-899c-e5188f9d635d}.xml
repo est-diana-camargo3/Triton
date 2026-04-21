@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{ce22f194-9ab7-44ff-899c-e5188f9d635d}">
 		<property name="name">
-			<value>SonidoOceano2</value>
+			<value>1_SonidoOceano2</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -152,7 +152,6 @@
 		<property name="length">
 			<value>10</value>
 		</property>
-		<property name="name" />
 		<property name="volume">
 			<value>-6</value>
 		</property>
