@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{0aad8f88-9fdb-4791-a259-0a7a0dae4a95}">
 		<property name="name">
-			<value>5_SonidoBurbujas2</value>
+			<value>3_SonidoBurbujas2aPrimerfiltrado</value>
 		</property>
 		<property name="outputFormat">
 			<value>5</value>
@@ -90,7 +90,7 @@
 	<object class="MixerBusPanner" id="{d6c46434-ea85-4e41-86de-2e056dc1cacc}" />
 	<object class="SingleSound" id="{013e8e5d-85dd-412a-a7eb-ff92e0947c02}">
 		<property name="length">
-			<value>0.29999999999999999</value>
+			<value>0.42999999999999999</value>
 		</property>
 		<property name="timelockedOffset">
 			<value>0.28500000000000009</value>
@@ -148,11 +148,11 @@
 		</property>
 	</object>
 	<object class="ThreeEQEffect" id="{8bc1534c-12bf-4b56-b176-46e949f9c917}">
-		<property name="bypass">
-			<value>true</value>
+		<property name="lowGain">
+			<value>-13</value>
 		</property>
 		<property name="midGain">
-			<value>-10.5</value>
+			<value>-29.5</value>
 		</property>
 		<property name="highGain">
 			<value>10</value>
@@ -165,30 +165,36 @@
 		</property>
 	</object>
 	<object class="PitchShifterEffect" id="{794e1728-6854-418c-a861-187750a7ebe1}">
-		<property name="bypass">
-			<value>true</value>
-		</property>
 		<property name="pitch">
-			<value>1.26999998</value>
+			<value>1.09000003</value>
 		</property>
 		<property name="fftSize">
-			<value>500</value>
+			<value>1200</value>
 		</property>
 		<property name="overlap">
-			<value>4.20000029</value>
+			<value>7.80000019</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{d5020f8d-2a44-4837-a3f1-34ddafcc0ed8}">
 		<property name="frequencyA">
-			<value>29.6576328</value>
+			<value>20.4253178</value>
+		</property>
+		<property name="frequencyB">
+			<value>137.405289</value>
 		</property>
 		<property name="qualityA">
-			<value>10</value>
+			<value>5.31897545</value>
+		</property>
+		<property name="gainA">
+			<value>30</value>
+		</property>
+		<property name="gainB">
+			<value>-17.8504677</value>
 		</property>
 	</object>
 	<object class="LowpassEffect" id="{ccddaa63-8bf2-428c-b57d-302aaee1f446}">
 		<property name="cutoff">
-			<value>580</value>
+			<value>700</value>
 		</property>
 		<property name="resonance">
 			<value>1.31999993</value>
@@ -196,7 +202,7 @@
 	</object>
 	<object class="HighpassEffect" id="{4047c1b8-f67b-48cb-8f29-004c66577816}">
 		<property name="cutoff">
-			<value>380</value>
+			<value>480</value>
 		</property>
 		<property name="resonance">
 			<value>1.22000003</value>

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{1e0b0d9f-a49a-46c7-b492-ddae41934be5}">
 		<property name="assetPath">
-			<value>freesound_community-wind-1-44149.mp3</value>
+			<value>BaseMixtaBlancoMasRosa.mp3</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>24</value>

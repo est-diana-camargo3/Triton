@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{7c279671-5d2c-4339-b3e3-f69424dfa20b}">
 		<property name="assetPath">
-			<value>TonoFrecuenccia440HZ_Audio_001.mp3</value>
+			<value>TonoFrecuencia440HZ.mp3</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

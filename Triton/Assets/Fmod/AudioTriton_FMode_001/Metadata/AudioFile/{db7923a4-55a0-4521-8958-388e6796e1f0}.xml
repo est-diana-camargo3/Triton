@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{db7923a4-55a0-4521-8958-388e6796e1f0}">
 		<property name="assetPath">
-			<value>RuidoCafe_audio_001.wav</value>
+			<value>BaseRuidoCafe2.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
