@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{c959fba3-c1ed-4278-8dc6-32ecd139fc1a}">
 		<property name="name">
-			<value>3_SonidoBurbujas</value>
+			<value>3_SonidoBurbujas_001</value>
 		</property>
 		<property name="outputFormat">
 			<value>5</value>
