@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{419d232d-3d30-4011-b715-37af60350b7a}">
+		<property name="color">
+			<value>Yellow</value>
+		</property>
 		<property name="name">
 			<value>3_SonidoBurbujas_003_(1Burbuja)</value>
 		</property>

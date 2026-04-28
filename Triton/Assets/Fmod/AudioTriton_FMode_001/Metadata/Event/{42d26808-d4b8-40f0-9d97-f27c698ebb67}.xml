@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{42d26808-d4b8-40f0-9d97-f27c698ebb67}">
+		<property name="color">
+			<value>Yellow</value>
+		</property>
 		<property name="name">
 			<value>3_SonidoBurbujas_004__FINAL</value>
 		</property>
@@ -173,7 +176,6 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{fb61a8c0-f778-479b-9091-7c43cc8d8dcd}">
-		<property name="name" />
 		<relationship name="event">
 			<destination>{419d232d-3d30-4011-b715-37af60350b7a}</destination>
 		</relationship>

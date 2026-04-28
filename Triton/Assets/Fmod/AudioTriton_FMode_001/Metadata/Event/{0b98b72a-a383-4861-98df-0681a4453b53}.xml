@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{0b98b72a-a383-4861-98df-0681a4453b53}">
+		<property name="color">
+			<value>Red</value>
+		</property>
 		<property name="name">
 			<value>2_SonidoBallena_002</value>
 		</property>

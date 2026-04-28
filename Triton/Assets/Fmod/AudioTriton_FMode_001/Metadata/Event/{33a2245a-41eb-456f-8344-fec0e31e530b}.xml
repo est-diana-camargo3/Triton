@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{33a2245a-41eb-456f-8344-fec0e31e530b}">
+		<property name="color">
+			<value>Green</value>
+		</property>
 		<property name="name">
-			<value>4_SonidoBrazada2</value>
+			<value>4_SonidoBrazada_002_FINAL</value>
 		</property>
 		<property name="outputFormat">
 			<value>5</value>
