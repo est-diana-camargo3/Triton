@@ -182,7 +182,7 @@
 	<object class="MixerBusFader" id="{149bd318-3cee-465d-855b-0ee25d4f2f3c}" />
 	<object class="MultibandEqEffect" id="{48412c92-fe48-496c-8560-fcbbe86b0e58}">
 		<property name="frequencyA">
-			<value>1068.27954</value>
+			<value>573.771301</value>
 		</property>
 		<property name="qualityA">
 			<value>10</value>
@@ -202,10 +202,10 @@
 	</object>
 	<object class="MultibandEqEffect" id="{8dc3a395-76a4-4f8d-be39-3caafec01af3}">
 		<property name="frequencyA">
-			<value>207.88681</value>
+			<value>158.799927</value>
 		</property>
 		<property name="qualityA">
-			<value>9.82662964</value>
+			<value>10</value>
 		</property>
 	</object>
 	<object class="SFXReverbEffect" id="{23b51805-4de3-43fa-bc94-945ce1255194}">
