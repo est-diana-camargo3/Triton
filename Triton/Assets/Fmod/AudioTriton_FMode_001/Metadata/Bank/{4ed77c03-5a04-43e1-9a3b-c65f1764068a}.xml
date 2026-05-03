@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Bank" id="{4ed77c03-5a04-43e1-9a3b-c65f1764068a}">
 		<property name="name">
-			<value>SonidoBurbujas</value>
+			<value>3_SonidoBurbujas</value>
 		</property>
 		<relationship name="folder">
 			<destination>{b3d4d59e-89f9-4227-bc4c-371202dd3dc0}</destination>

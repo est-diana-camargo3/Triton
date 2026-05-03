@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="Bank" id="{f3547514-8077-4697-a560-adc97bd8f9d4}">
+	<object class="Bank" id="{386fb40a-fe27-46f3-947e-ca0108883d27}">
 		<property name="name">
-			<value>2_SonidoBallena</value>
+			<value>5_SonidoBotonLinterna</value>
 		</property>
 		<relationship name="folder">
 			<destination>{b3d4d59e-89f9-4227-bc4c-371202dd3dc0}</destination>
