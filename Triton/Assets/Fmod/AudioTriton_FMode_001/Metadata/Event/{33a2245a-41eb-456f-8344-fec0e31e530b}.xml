@@ -85,7 +85,7 @@
 			<destination>{4a9bc012-b8ea-4cb4-8456-6b0f3de741b5}</destination>
 		</relationship>
 		<relationship name="markers">
-			<destination>{071f9317-7768-4f2d-b32e-55ce7180d5d3}</destination>
+			<destination>{1d539f62-8839-4c3d-adcd-3f9226cd600f}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{d086f278-4499-48f6-a021-ac092280ffd2}">
@@ -122,10 +122,10 @@
 	</object>
 	<object class="SoundScatterer" id="{4a9bc012-b8ea-4cb4-8456-6b0f3de741b5}">
 		<property name="volume">
-			<value>10</value>
+			<value>-0.5</value>
 		</property>
 		<property name="pitch">
-			<value>21.5</value>
+			<value>-6</value>
 		</property>
 		<property name="polyphony">
 			<value>32</value>
@@ -186,7 +186,7 @@
 			<destination>{d086f278-4499-48f6-a021-ac092280ffd2}</destination>
 		</relationship>
 	</object>
-	<object class="LoopRegion" id="{071f9317-7768-4f2d-b32e-55ce7180d5d3}">
+	<object class="LoopRegion" id="{1d539f62-8839-4c3d-adcd-3f9226cd600f}">
 		<property name="position">
 			<value>0</value>
 		</property>
@@ -223,8 +223,8 @@
 	<object class="MixerBusEffectChain" id="{df92c3d7-8ae1-462a-9757-0ad053091d84}">
 		<relationship name="effects">
 			<destination>{d5f624f6-a8d1-4bab-bc38-9641a7ea9184}</destination>
-			<destination>{083877c6-7046-4dcb-b480-824d72ff388d}</destination>
 			<destination>{97e174bd-0342-4713-a72a-492adee5b0b3}</destination>
+			<destination>{083877c6-7046-4dcb-b480-824d72ff388d}</destination>
 			<destination>{7fd71065-514e-4206-a4ed-dacdf0179f2b}</destination>
 			<destination>{d6bacb8d-6b33-4ae4-bd04-76f854d46102}</destination>
 		</relationship>
@@ -261,21 +261,10 @@
 			<value>900</value>
 		</property>
 		<property name="resonance">
-			<value>1.33999991</value>
+			<value>1.27999997</value>
 		</property>
 		<relationship name="automators">
 			<destination>{1dcd421d-7b91-4cfc-ae78-1450d590f44b}</destination>
-		</relationship>
-	</object>
-	<object class="HighpassEffect" id="{083877c6-7046-4dcb-b480-824d72ff388d}">
-		<property name="cutoff">
-			<value>700</value>
-		</property>
-		<property name="resonance">
-			<value>1.83999991</value>
-		</property>
-		<relationship name="automators">
-			<destination>{e9160ec3-e450-4753-8f86-56c1d622d6b4}</destination>
 		</relationship>
 	</object>
 	<object class="SFXReverbEffect" id="{97e174bd-0342-4713-a72a-492adee5b0b3}">
@@ -289,7 +278,22 @@
 			<value>-15.5</value>
 		</property>
 	</object>
-	<object class="PitchShifterEffect" id="{7fd71065-514e-4206-a4ed-dacdf0179f2b}" />
+	<object class="HighpassEffect" id="{083877c6-7046-4dcb-b480-824d72ff388d}">
+		<property name="cutoff">
+			<value>700</value>
+		</property>
+		<property name="resonance">
+			<value>1.39999998</value>
+		</property>
+		<relationship name="automators">
+			<destination>{e9160ec3-e450-4753-8f86-56c1d622d6b4}</destination>
+		</relationship>
+	</object>
+	<object class="PitchShifterEffect" id="{7fd71065-514e-4206-a4ed-dacdf0179f2b}">
+		<property name="pitch">
+			<value>0.699999988</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{d6bacb8d-6b33-4ae4-bd04-76f854d46102}" />
 	<object class="MixerBusFader" id="{ba9f526b-4953-4451-a985-a63dad8ff658}" />
 	<object class="AutomationPoint" id="{a633ac3f-9a30-43c1-b0d0-4de6d0eb68ef}">
@@ -391,7 +395,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>600</value>
+			<value>400</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{c0b06c0c-4dfd-4a75-b84e-3ca646c86679}">
@@ -399,7 +403,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>560</value>
+			<value>260</value>
 		</property>
 	</object>
 </objects>

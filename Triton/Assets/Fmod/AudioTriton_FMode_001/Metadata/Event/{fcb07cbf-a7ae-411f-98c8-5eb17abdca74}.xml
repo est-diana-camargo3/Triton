@@ -210,16 +210,17 @@
 			<destination>{715b8908-b3db-4d33-9cc4-fbbfc213577a}</destination>
 			<destination>{2fbf7d43-3e82-4002-adbb-822cf6f8eba1}</destination>
 			<destination>{3515f35f-6e22-4104-af01-d95894848e05}</destination>
+			<destination>{bab75ce6-0875-49b5-a6e5-ec07b01186da}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{64fa929f-c712-4581-8868-b92f7896d68f}" />
 	<object class="MixerBusFader" id="{532adbf0-09a4-4208-b224-54e3703c0009}" />
 	<object class="MultibandEqEffect" id="{f8af5462-a1e6-46a2-8b60-2ee0c2cf4826}">
 		<property name="frequencyA">
-			<value>17157.1074</value>
+			<value>216.682251</value>
 		</property>
 		<property name="qualityA">
-			<value>9.65325737</value>
+			<value>0.100000001</value>
 		</property>
 	</object>
 	<object class="SpatialiserEffect" id="{b7bcf36c-a56e-43ef-980b-3b61931d31d3}" />
@@ -244,15 +245,6 @@
 		</relationship>
 	</object>
 	<object class="ThreeEQEffect" id="{b7c8c11e-9636-4dc0-a299-3870b7c5c970}">
-		<property name="lowGain">
-			<value>10</value>
-		</property>
-		<property name="midGain">
-			<value>10</value>
-		</property>
-		<property name="highGain">
-			<value>10</value>
-		</property>
 		<property name="lowCrossover">
 			<value>10</value>
 		</property>
@@ -276,7 +268,7 @@
 	</object>
 	<object class="PitchShifterEffect" id="{6b5f612e-3b03-4dc6-be17-aaa2e4c16f53}">
 		<property name="pitch">
-			<value>0.839999974</value>
+			<value>0.659999967</value>
 		</property>
 		<property name="fftSize">
 			<value>1020</value>
@@ -298,6 +290,14 @@
 		<relationship name="automators">
 			<destination>{35ea6de2-35ae-45df-b7c8-52461ac2544f}</destination>
 		</relationship>
+	</object>
+	<object class="MultibandEqEffect" id="{bab75ce6-0875-49b5-a6e5-ec07b01186da}">
+		<property name="frequencyA">
+			<value>21999.9902</value>
+		</property>
+		<property name="qualityA">
+			<value>0.100000001</value>
+		</property>
 	</object>
 	<object class="AutomationPoint" id="{b56f5d40-07f9-4616-b660-4f3da691f9a3}">
 		<property name="position">
