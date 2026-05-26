@@ -1,23 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// CAMBIO PRINCIPAL respecto a la versión anterior:
-///
-/// Antes: cameraRig.TransformDirection()  →  solo captura YAW (girar izq/der)
-/// Ahora: centerEye.TransformDirection()  →  captura YAW + PITCH (mirar arriba/abajo)
-///
-/// Esto hace que la dirección del movimiento sea relativa a donde mira el jugador
-/// en los 3 ejes, no solo en el plano horizontal.
-///
-/// MATEMÁTICAMENTE:
-///   strokeDirection viene en espacio TrackingSpace (espacio "sala física")
-///   centerEye.TransformDirection(v) aplica la rotación completa de la cabeza:
-///     M_world = R_cameraRig × R_centerEye × v
-///   donde R_centerEye incluye el pitch (rotación en X) que da la mirada vertical.
-///
-/// SETUP EN UNITY:
-///   centerEye = OVRCameraRig → TrackingSpace → CenterEyeAnchor
-/// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class SwimmingController : MonoBehaviour
 {
@@ -26,23 +8,41 @@ public class SwimmingController : MonoBehaviour
     public StrokeDetector rightHand;
 
     [Tooltip("OVRCameraRig → TrackingSpace → CenterEyeAnchor")]
-    public Transform centerEye;        // ← reemplaza a cameraRig
+    public Transform centerEye;
 
     [Header("Física del nado")]
-    [Tooltip("Escala global de la fuerza")]
     public float strokeForceMultiplier = 8f;
-    [Tooltip("Resistencia del agua")]
-    public float waterDrag = 2.5f;
-    [Tooltip("Velocidad máxima en m/s")]
-    public float maxSpeed = 6f;
+    public float waterDrag             = 2.5f;
+    public float maxSpeed              = 6f;
 
+    [Header("Dirección")]
+    [Tooltip("0 = dirección física pura | 1 = siempre donde mira la cabeza\n" +
+             "El signo se preserva: brazada hacia atrás = moverse hacia atrás")]
+    [Range(0f, 1f)]
+    public float headInfluence = 0.5f;
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // VFX
+    // ─────────────────────────────────────────────────────────────────────────
+    [Header("VFX")]
+    [Tooltip("Trail de burbujas activo mientras el jugador se mueve")]
+    public GameObject trailVFX;
+    public GameObject trailVFX2;
+    [Tooltip("Velocidad mínima para que el trail permanezca activo")]
+    public float trailMinSpeed = 0.1f;
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // DEBUG
+    // ─────────────────────────────────────────────────────────────────────────
     [Header("Debug (solo lectura)")]
-    public float currentSpeed;
-    public bool  leftInPowerPhase;
-    public bool  rightInPowerPhase;
-    public Vector3 lastAppliedForce;
+    public float   currentSpeed;
+    public bool    leftInPowerPhase;
+    public bool    rightInPowerPhase;
+    public Vector3 lastSwimDirection;
 
     private Rigidbody rb;
+    private bool      wasMoving      = false;
+    private bool      trailActive    = false;
 
     void Start()
     {
@@ -52,9 +52,10 @@ public class SwimmingController : MonoBehaviour
 
         if (leftHand  == null) Debug.LogError("[SWIM] leftHand es NULL");
         if (rightHand == null) Debug.LogError("[SWIM] rightHand es NULL");
-        if (centerEye == null) Debug.LogError("[SWIM] centerEye es NULL — arrastra CenterEyeAnchor");
+        if (centerEye == null) Debug.LogError("[SWIM] centerEye es NULL");
 
-        Debug.Log($"[SWIM] isKinematic: {rb.isKinematic}");
+        SetVFX(trailVFX, false);
+        SetVFX(trailVFX2, false);
     }
 
     void FixedUpdate()
@@ -68,34 +69,89 @@ public class SwimmingController : MonoBehaviour
         currentSpeed      = rb.velocity.magnitude;
         leftInPowerPhase  = leftHand  != null && leftHand.isPowerPhase;
         rightInPowerPhase = rightHand != null && rightHand.isPowerPhase;
+
+        HandleTrailAndEndSFX();
     }
 
     void ApplyHandForce(StrokeDetector hand, string side)
     {
         if (hand == null || !hand.isPowerPhase) return;
 
-        // ── Transformación de dirección ────────────────────────────────────────
-        // hand.currentStrokeDirection está en espacio TrackingSpace (sala física).
-        // centerEye.TransformDirection() aplica la rotación completa de la cabeza
-        // (yaw + pitch), convirtiendo ese vector al espacio mundo.
+        // ── Dirección corregida (sin doble rotación) ──────────────────────────
         //
-        // Resultado: si el jugador mira 45° hacia arriba y empuja "adelante",
-        // la dirección resultante en mundo apunta 45° hacia arriba-adelante.
+        // physicalDir: viene en tracking space (= mundo cuando el rig no rota).
+        //              Ya contiene la dirección correcta sea adelante o atrás.
         //
-        // NO aplicamos ningún aplastamiento de Y — el movimiento es libre en
-        // los 3 ejes igual que nadar en el océano real.
-        Vector3 worldDirection = centerEye.TransformDirection(hand.currentStrokeDirection);
-        worldDirection = worldDirection.normalized;
+        // headDir: se orienta según el signo del dot product con physicalDir.
+        //          Si la brazada va hacia adelante → headDir = centerEye.forward
+        //          Si la brazada va hacia atrás    → headDir = -centerEye.forward
+        //          Esto preserva la intención del jugador en ambas direcciones.
+        //
+        // Slerp mezcla ambos con headInfluence sin perder el signo.
+        Vector3 physicalDir = hand.currentStrokeDirection;
 
-        // ForceMode.Force: fuerza continua por frame durante la fase de empuje
-        // hand.currentForce = velocidad_brazo × multiplicador_de_carga
+        Vector3 headDir = Vector3.zero;
+        if (centerEye != null)
+        {
+            float dot = Vector3.Dot(physicalDir, centerEye.forward);
+            // Alinear headDir con la intención de la brazada (mismo hemisferio)
+            headDir = dot >= 0 ? centerEye.forward : -centerEye.forward;
+        }
+        else
+        {
+            headDir = physicalDir;
+        }
+
+        Vector3 worldDirection = Vector3.Slerp(physicalDir, headDir, headInfluence).normalized;
+        lastSwimDirection      = worldDirection;
+
         Vector3 force = worldDirection * hand.currentForce * strokeForceMultiplier;
         rb.AddForce(force, ForceMode.Force);
 
-        lastAppliedForce = force;
-
         if (Time.frameCount % 15 == 0)
-            Debug.Log($"[SWIM] {side} | dir: {worldDirection:F2} | F: {force.magnitude:F2}N | vel: {currentSpeed:F2}");
+            Debug.Log($"[SWIM] {side} | swimDir: {worldDirection:F2} | F: {force.magnitude:F2}N | vel: {currentSpeed:F2}");
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // TRAIL VFX + SFX DE FIN DE MOVIMIENTO
+    // ─────────────────────────────────────────────────────────────────────────
+    void HandleTrailAndEndSFX()
+    {
+        bool isMoving = currentSpeed > trailMinSpeed;
+
+        // Activar trail mientras se mueve
+        if (isMoving && !trailActive)
+        {
+            SetVFX(trailVFX, true);
+            SetVFX(trailVFX2, true);
+            trailActive = true;
+        }
+
+        // Al detenerse: apagar trail, sonido de fin de movimiento y burbujas
+        if (!isMoving && wasMoving)
+        {
+            SetVFX(trailVFX, false);
+            SetVFX(trailVFX2, false);
+            trailActive = false;
+
+            // Apagar bubblesVFX de ambas manos al llegar a velocidad 0
+            TurnOffHandBubbles(leftHand);
+            TurnOffHandBubbles(rightHand);
+            
+        }
+
+        wasMoving = isMoving;
+    }
+
+    void TurnOffHandBubbles(StrokeDetector hand)
+    {
+        if (hand != null && hand.bubblesVFX != null)
+            hand.bubblesVFX.SetActive(false);
+    }
+
+    void SetVFX(GameObject vfx, bool active)
+    {
+        if (vfx != null) vfx.SetActive(active);
     }
 
     void Update()

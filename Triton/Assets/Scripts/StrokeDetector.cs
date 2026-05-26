@@ -1,33 +1,15 @@
 using UnityEngine;
 
-/// <summary>
-/// Detecta la fase de empuje de una brazada y expone fuerza/dirección continua
-/// para que SwimmingController la aplique cada FixedUpdate.
-///
-/// FLUJO:
-///   1. Presionar gatillo  → inicia carga y registra posición inicial
-///   2. Mover brazo        → si el movimiento se alinea con la dirección acumulada
-///                           de la brazada, entra en FASE DE EMPUJE
-///   3. Durante el empuje  → isPowerPhase = true, SwimmingController aplica fuerza
-///                           continua proporcional a: carga × velocidad del brazo
-///   4. Brazo vuelve       → dot product cae bajo el umbral → FASE DE RECOBRO
-///                           isPowerPhase = false, no se aplica fuerza
-///   5. Soltar gatillo     → resetea todo
-/// </summary>
 public class StrokeDetector : MonoBehaviour
 {
     public enum HandSide { Left, Right }
     public HandSide hand;
 
     // ─────────────────────────────────────────────────────────────────────────
-    // DETECCIÓN DE FASE DE EMPUJE
+    // DETECCIÓN
     // ─────────────────────────────────────────────────────────────────────────
     [Header("Detección de empuje")]
-    [Tooltip("Velocidad mínima del controller para considerar que hay empuje activo (m/s)")]
-    public float minStrokeVelocity = 0.3f;
-
-    [Tooltip("Qué tan alineado debe estar el movimiento con la dirección de la brazada " +
-             "para entrar en fase de empuje. 0 = cualquier dirección, 0.5 = ±60°")]
+    public float minStrokeVelocity  = 0.3f;
     [Range(0f, 1f)]
     public float alignmentThreshold = 0.3f;
 
@@ -35,35 +17,44 @@ public class StrokeDetector : MonoBehaviour
     // CARGA
     // ─────────────────────────────────────────────────────────────────────────
     [Header("Carga del impulso")]
-    [Tooltip("Tiempo para alcanzar el 100% de carga (segundos)")]
-    public float maxChargeTime = 2f;
-    [Tooltip("Multiplicador de fuerza con 0% de carga")]
-    public float minChargeMultiplier = 0.3f;
-    [Tooltip("Multiplicador de fuerza con 100% de carga")]
-    public float maxChargeMultiplier = 1f;
+    public float maxChargeTime        = 2f;
+    public float minChargeMultiplier  = 0.3f;
+    public float maxChargeMultiplier  = 1f;
 
     // ─────────────────────────────────────────────────────────────────────────
-    // COOLDOWN (evita detectar recobro como nueva brazada inmediatamente)
+    // COOLDOWN
     // ─────────────────────────────────────────────────────────────────────────
     [Header("Cooldown entre brazadas")]
     public float strokeCooldown = 0.25f;
     private float lastStrokeEndTime;
 
     // ─────────────────────────────────────────────────────────────────────────
+    // VFX
+    // ─────────────────────────────────────────────────────────────────────────
+    [Header("VFX")]
+    [Tooltip("Aparece mientras se está cargando la brazada")]
+    public GameObject chargingVFX;
+
+    [Tooltip("Flash corto al iniciar el movimiento de brazada")]
+    public GameObject explosionVFX;
+    [Tooltip("Duración del explosionVFX en segundos")]
+    public float explosionDuration = 0.3f;
+
+    [Tooltip("Burbujas que aparecen al iniciar el movimiento")]
+    public GameObject bubblesVFX;
+
+    // ─────────────────────────────────────────────────────────────────────────
     // DEBUG
     // ─────────────────────────────────────────────────────────────────────────
     [Header("Debug (solo lectura)")]
-    public bool  isPowerPhase;
-    public float currentForce;
-    public float currentAlignment;
+    public bool   isPowerPhase;
+    public float  currentForce;
+    public float  currentAlignment;
     [Range(0f, 100f)]
-    public float currentChargePercent;
-    public float strokeDistance;
+    public float  currentChargePercent;
+    public float  strokeDistance;
     public string currentPhase;
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // ESTADO PÚBLICO que lee SwimmingController cada FixedUpdate
-    // ─────────────────────────────────────────────────────────────────────────
     [HideInInspector] public Vector3 currentStrokeDirection;
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -74,20 +65,25 @@ public class StrokeDetector : MonoBehaviour
     private float   triggerPressTime = -1f;
     private Vector3 startPosition;
     private Vector3 previousVelocity;
+    private bool    chargingSFXPlaying = false;
 
     void Start()
     {
         controller = (hand == HandSide.Left)
             ? OVRInput.Controller.LTouch
             : OVRInput.Controller.RTouch;
+
+        SetVFX(chargingVFX,  false);
+        SetVFX(explosionVFX, false);
+        SetVFX(bubblesVFX,   false);
     }
 
     void Update()
     {
-        float   trigger        = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, controller);
-        bool    isTriggered    = trigger > 0.8f;
-        Vector3 controllerVel  = OVRInput.GetLocalControllerVelocity(controller);
-        Vector3 controllerPos  = OVRInput.GetLocalControllerPosition(controller);
+        float   trigger       = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, controller);
+        bool    isTriggered   = trigger > 0.8f;
+        Vector3 controllerVel = OVRInput.GetLocalControllerVelocity(controller);
+        Vector3 controllerPos = OVRInput.GetLocalControllerPosition(controller);
 
         if (isTriggered)
         {
@@ -99,6 +95,9 @@ public class StrokeDetector : MonoBehaviour
                 startPosition    = controllerPos;
                 previousVelocity = controllerVel;
                 isPowerPhase     = false;
+
+                SetVFX(chargingVFX, true);
+                chargingSFXPlaying = false;
             }
 
             // ── Carga acumulada ───────────────────────────────────────────────
@@ -107,36 +106,49 @@ public class StrokeDetector : MonoBehaviour
             float chargeRatio    = currentChargePercent / 100f;
             float chargeMult     = Mathf.Lerp(minChargeMultiplier, maxChargeMultiplier, chargeRatio);
 
-            // ── Dirección acumulada de la brazada (delta de posición) ─────────
-            // strokeVector: de donde empezó la mano a donde está ahora
-            Vector3 strokeVector    = controllerPos - startPosition;
-            strokeDistance          = strokeVector.magnitude;
+            // SFX de carga (una sola vez al empezar)
+            if (!chargingSFXPlaying)
+            {
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.cargandoBrazada, transform.position);
+                chargingSFXPlaying = true;
+            }
 
-            // currentStrokeDirection: dirección OPUESTA al movimiento de la mano
-            // (empujas el agua hacia atrás → te mueves en dirección contraria)
+            // ── Dirección acumulada ───────────────────────────────────────────
+            Vector3 strokeVector = controllerPos - startPosition;
+            strokeDistance = strokeVector.magnitude;
+
             if (strokeVector.magnitude > 0.01f)
                 currentStrokeDirection = -strokeVector.normalized;
 
-            // ── Detección de fase: dot product entre vel actual y dir de empuje ─
-            // Si la mano se mueve en la misma dirección que strokeVector
-            // (es decir, sigue empujando) → dot product positivo
-            float speed = controllerVel.magnitude;
+            // ── Dot product: fase de empuje ───────────────────────────────────
+            float speed      = controllerVel.magnitude;
             currentAlignment = speed > 0.01f
                 ? Vector3.Dot(controllerVel.normalized, strokeVector.normalized)
                 : 0f;
 
-            bool cooldownOk   = Time.time - lastStrokeEndTime > strokeCooldown;
-            bool movingEnough = speed > minStrokeVelocity;
-            bool aligned      = currentAlignment > alignmentThreshold;
-            bool hasTraveled  = strokeDistance > 0.05f; // mínimo recorrido para no disparar con tembleos
+            bool cooldownOk    = Time.time - lastStrokeEndTime > strokeCooldown;
+            bool movingEnough  = speed > minStrokeVelocity;
+            bool aligned       = currentAlignment > alignmentThreshold;
+            bool hasTraveled   = strokeDistance > 0.05f;
 
             // ── FASE DE EMPUJE ────────────────────────────────────────────────
             if (movingEnough && aligned && hasTraveled && cooldownOk)
             {
-                isPowerPhase = true;
+                if (!isPowerPhase)
+                {
+                    // Acaba de entrar en fase de empuje: activar VFX de explosión y burbujas
+                    SetVFX(chargingVFX,  false);
+                    SetVFX(explosionVFX, true);
+                    SetVFX(bubblesVFX,   true);
 
-                // Fuerza = velocidad del brazo × multiplicador de carga
-                // SwimmingController multiplica esto por su propio strokeForceMultiplier
+                    // SFX de brazada al iniciar el movimiento
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.brazadas, transform.position);
+
+                    // Apagar explosion después de su duración
+                    Invoke(nameof(HideExplosionVFX), explosionDuration);
+                }
+
+                isPowerPhase = true;
                 currentForce = speed * chargeMult;
                 currentPhase = $"EMPUJE | vel: {speed:F2} | carga: {currentChargePercent:F0}%";
 
@@ -147,14 +159,15 @@ public class StrokeDetector : MonoBehaviour
             {
                 if (isPowerPhase)
                 {
-                    // Acaba de salir de la fase de empuje
                     lastStrokeEndTime = Time.time;
                     TriggerStrokeEndHaptic(chargeRatio);
 
-                    // Resetear posición de inicio para la próxima brazada
-                    // sin soltar el gatillo
-                    startPosition    = controllerPos;
-                    strokeDistance   = 0f;
+                    // Resetear posición para siguiente brazada sin soltar gatillo
+                    startPosition  = controllerPos;
+                    strokeDistance = 0f;
+
+                    // Burbujas se apagan: SwimmingController decide cuándo via velocidad
+                    // La explosion ya se apagó sola con el Invoke
                 }
 
                 isPowerPhase = false;
@@ -163,10 +176,12 @@ public class StrokeDetector : MonoBehaviour
                     ? $"Recobro | alineación: {currentAlignment:F2}"
                     : $"Cargando: {currentChargePercent:F0}%";
 
-                if (!movingEnough)
-                    ApplyChargingHaptic(chargeRatio);
-                else
-                    StopHaptics();
+                // Volver a mostrar chargingVFX si ya no está en empuje
+                if (!isPowerPhase && isCharging)
+                    SetVFX(chargingVFX, true);
+
+                if (!movingEnough) ApplyChargingHaptic(chargeRatio);
+                else               StopHaptics();
             }
 
             previousVelocity = controllerVel;
@@ -183,7 +198,14 @@ public class StrokeDetector : MonoBehaviour
                 strokeDistance       = 0f;
                 isPowerPhase         = false;
                 currentForce         = 0f;
+                chargingSFXPlaying   = false;
+
+                SetVFX(chargingVFX,  false);
+                SetVFX(bubblesVFX,   false);
+                CancelInvoke(nameof(HideExplosionVFX));
+                SetVFX(explosionVFX, false);
             }
+
             currentPhase     = "Gatillo no presionado";
             currentAlignment = 0f;
             previousVelocity = Vector3.zero;
@@ -193,7 +215,17 @@ public class StrokeDetector : MonoBehaviour
             Debug.Log($"[STROKE-{hand}] {currentPhase} | dist: {strokeDistance:F2}m");
     }
 
-    // Vibración pulsante que sube mientras carga (solo cuando NO está empujando)
+    // ─────────────────────────────────────────────────────────────────────────
+    // HELPERS
+    // ─────────────────────────────────────────────────────────────────────────
+
+    void SetVFX(GameObject vfx, bool active)
+    {
+        if (vfx != null) vfx.SetActive(active);
+    }
+
+    void HideExplosionVFX() => SetVFX(explosionVFX, false);
+
     void ApplyChargingHaptic(float chargeRatio)
     {
 #if !UNITY_EDITOR
@@ -204,7 +236,6 @@ public class StrokeDetector : MonoBehaviour
 #endif
     }
 
-    // Golpe corto al terminar la fase de empuje (confirmación)
     void TriggerStrokeEndHaptic(float chargeRatio)
     {
 #if !UNITY_EDITOR
@@ -212,7 +243,7 @@ public class StrokeDetector : MonoBehaviour
         OVRInput.SetControllerVibration(amplitude, amplitude, controller);
         Invoke(nameof(StopHaptics), 0.1f);
 #endif
-        Debug.Log($"[STROKE-{hand}] Fin de empuje | carga: {chargeRatio * 100f:F0}% | dist: {strokeDistance:F2}m");
+        Debug.Log($"[STROKE-{hand}] Fin empuje | carga: {chargeRatio * 100f:F0}% | dist: {strokeDistance:F2}m");
     }
 
     void StopHaptics()

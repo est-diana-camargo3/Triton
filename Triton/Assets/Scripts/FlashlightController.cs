@@ -46,7 +46,7 @@ public class FlashlightController : MonoBehaviour
         flashlight.range     = range;
         flashlight.spotAngle = spotAngle;
         flashlight.color     = lightColor;
-        flashlight.enabled   = false;   // empieza apagada
+        flashlight.gameObject.SetActive(false);   // empieza apagada
 
         Debug.Log("[LINTERNA] Lista - presiona " + toggleButton + " para activar");
     }
@@ -59,7 +59,14 @@ public class FlashlightController : MonoBehaviour
         if (OVRInput.GetDown(toggleButton, controller))
         {
             isOn             = !isOn;
-            flashlight.enabled = isOn;
+            if (isOn)
+            {
+                flashlight.gameObject.SetActive(true);
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.Linterna, flashlight.transform.position);
+            }
+            else
+                flashlight.gameObject.SetActive(false);  
+            
             Debug.Log($"[LINTERNA] {(isOn ? "Encendida" : "Apagada")}");
         }
     }

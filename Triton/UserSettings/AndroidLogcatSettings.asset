@@ -10,38 +10,26 @@
     "m_KnownProcessesForSerialization": [
         {
             "deviceId": "230YC01DB001N0",
-            "name": "com.oculus.panelapp.settings:QuickControls",
-            "processId": 7579,
-            "exited": false
+            "name": "com.DefaultCompany.Triton",
+            "processId": 17171,
+            "exited": true
+        },
+        {
+            "deviceId": "230YC01DB001N0",
+            "name": "com.DefaultCompany.Triton",
+            "processId": 18553,
+            "exited": true
+        },
+        {
+            "deviceId": "230YC01DB001N0",
+            "name": "com.DefaultCompany.Triton",
+            "processId": 23071,
+            "exited": true
         },
         {
             "deviceId": "230YC01DB001N0",
             "name": "com.oculus.os.clearactivity",
-            "processId": 23819,
-            "exited": true
-        },
-        {
-            "deviceId": "230YC01DB001N0",
-            "name": "com.DefaultCompany.Triton",
-            "processId": 30214,
-            "exited": true
-        },
-        {
-            "deviceId": "230YC01DB001N0",
-            "name": "com.oculus.os.clearactivity",
-            "processId": 5417,
-            "exited": false
-        },
-        {
-            "deviceId": "230YC01DB001N0",
-            "name": "com.DefaultCompany.Triton",
-            "processId": 13606,
-            "exited": true
-        },
-        {
-            "deviceId": "230YC01DB001N0",
-            "name": "com.DefaultCompany.Triton",
-            "processId": 15472,
+            "processId": 24507,
             "exited": true
         },
         {
