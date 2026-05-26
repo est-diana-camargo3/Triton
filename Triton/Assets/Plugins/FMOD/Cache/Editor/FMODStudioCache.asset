@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 639118450495419189
+  lastModified: 639124073787420632
   FileSizes:
   - Name: Desktop
     Value: 108768
@@ -169,7 +169,7 @@ MonoBehaviour:
   Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639118446710556059
+  lastModified: 639124073787455067
   FileSizes:
   - Name: Desktop
     Value: 1042
@@ -250,7 +250,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -3000277364007575700}
   cacheVersion: 131858
-  cacheTime: 639118450495419189
+  cacheTime: 639124073788447957
   SerializableEventsDict:
   - key: event:/SonidoBallena
     index: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639118446711923143
+  lastModified: 639124073787460103
   FileSizes:
   - Name: Desktop
     Value: 506
@@ -396,7 +396,7 @@ MonoBehaviour:
   Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639118446710526025
+  lastModified: 639124073787440904
   FileSizes:
   - Name: Desktop
     Value: 1074
@@ -436,7 +436,7 @@ MonoBehaviour:
   Path: Assets/Fmod/AudioTriton_FMode_001/Build/Desktop/VFX.bank
   Name: VFX
   StudioPath: bank:/VFX
-  lastModified: 639118446711869900
+  lastModified: 639124073788447957
   FileSizes:
   - Name: Desktop
     Value: 12768768
