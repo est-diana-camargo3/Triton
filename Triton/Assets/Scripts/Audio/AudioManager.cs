@@ -223,23 +223,24 @@ public class AudioManager : MonoBehaviour
         }
 
         musicSource.Stop();
-        if (newMusic != null && newMusic.clip != null)
-        {
-            musicSource.clip = newMusic.clip;
-            musicSource.loop = newMusic.loop;
-            musicSource.pitch = newMusic.pitch;
-            musicSource.Play();
 
-            // Fade in
-            t = 0f;
-            while (t < duration)
-            {
-                t += Time.deltaTime;
-                musicSource.volume = Mathf.Lerp(0f, newMusic.volume, t / duration);
-                yield return null;
-            }
-            musicSource.volume = newMusic.volume;
+        // ── Guarda nueva: si newMusic es null, solo detener ──────────
+        if (newMusic == null || newMusic.clip == null) yield break;
+
+        // Fade in
+        musicSource.clip   = newMusic.clip;
+        musicSource.loop   = newMusic.loop;
+        musicSource.pitch  = newMusic.pitch;
+        musicSource.Play();
+
+        t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            musicSource.volume = Mathf.Lerp(0f, newMusic.volume, t / duration);
+            yield return null;
         }
+        musicSource.volume = newMusic.volume;
     }
 
     // ════════════════════════════════════════════════════════════════════════
