@@ -11,25 +11,25 @@
         {
             "deviceId": "230YC01DB001N0",
             "name": "com.DefaultCompany.Triton",
-            "processId": 17171,
+            "processId": 14916,
             "exited": true
         },
         {
             "deviceId": "230YC01DB001N0",
             "name": "com.DefaultCompany.Triton",
-            "processId": 18553,
+            "processId": 16078,
             "exited": true
         },
         {
             "deviceId": "230YC01DB001N0",
             "name": "com.DefaultCompany.Triton",
-            "processId": 23071,
+            "processId": 17270,
             "exited": true
         },
         {
             "deviceId": "230YC01DB001N0",
-            "name": "com.oculus.os.clearactivity",
-            "processId": 24507,
+            "name": "com.oculus.systemux:SystemUX",
+            "processId": 4304,
             "exited": true
         },
         {

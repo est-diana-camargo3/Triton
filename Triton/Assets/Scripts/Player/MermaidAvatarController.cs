@@ -20,31 +20,41 @@ public class MermaidAvatarController : MonoBehaviour
 
     [Header("Rotación de cuerpo")]
     public SwimmingController swimmingController;
-    [Tooltip("Velocidad mínima para que el cuerpo rote con la cabeza")]
     public float rotationSpeedThreshold = 0.1f;
-    [Tooltip("Qué tan rápido el cuerpo sigue a la cabeza (1=instantáneo)")]
-    [Range(0.01f, 1f)]
-    public float bodyRotationSmoothing = 0.1f;
+    [Tooltip("Velocidad base de rotación en grados por segundo")]
+    public float baseRotationSpeed = 90f;
+    [Tooltip("Ángulo a partir del cual la velocidad se multiplica")]
+    public float maxBodyHeadAngle = 60f;
 
     void Update()
     {
-        // ── Posición: el modelo sigue a la cámara ────────────────────────────
         modeloSirena.position = camara.position;
 
-        // ── Rotación: solo cuando el jugador nada activamente ────────────────
-        if (swimmingController != null && 
-            swimmingController.currentSpeed > rotationSpeedThreshold)
-        {
-            modeloSirena.rotation = Quaternion.Slerp(
-                modeloSirena.rotation,
-                camara.rotation,
-                bodyRotationSmoothing
-            );
-        }
+      
+        float angle = Vector3.Angle(modeloSirena.forward, camara.forward);
+        bool isSwimming = swimmingController != null &&
+                          swimmingController.currentSpeed > rotationSpeedThreshold;
 
-        // ── IK manos ─────────────────────────────────────────────────────────
+// Velocidad escala con el ángulo: cerca de 0° rota lento, cerca de 180° rota rápido
+        float angleNormalized = Mathf.Clamp01(angle / 180f);
+        float rotationSpeed   = baseRotationSpeed * angleNormalized;
+
+// Cuando nada, velocidad mínima garantizada para que el cuerpo siempre siga
+        if (isSwimming)
+            rotationSpeed = Mathf.Max(rotationSpeed, baseRotationSpeed * 0.5f);
+
+        modeloSirena.rotation = Quaternion.RotateTowards(
+            modeloSirena.rotation,
+            camara.rotation,
+            rotationSpeed * Time.deltaTime
+        );
+
+        // ── IK manos (sin cambios) ────────────────────────────────────────────
         if (rightControllerAnchor != null && targetHandR != null)
         {
+            // rightControllerAnchor.rotation.
+                
+            
             targetHandR.position = rightControllerAnchor.position;
             targetHandR.rotation = rightControllerAnchor.rotation *
                                    Quaternion.Euler(rightRotationOffset);
