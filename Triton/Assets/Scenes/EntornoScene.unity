@@ -4236,6 +4236,8 @@ GameObject:
   m_Component:
   - component: {fileID: 767899886}
   - component: {fileID: 767899891}
+  - component: {fileID: 767899892}
+  - component: {fileID: 767899893}
   - component: {fileID: 767899890}
   - component: {fileID: 767899889}
   - component: {fileID: 767899888}
@@ -4371,6 +4373,32 @@ MonoBehaviour:
   leftInPowerPhase: 0
   rightInPowerPhase: 0
   lastSwimDirection: {x: 0, y: 0, z: 0}
+--- !u!114 &767899892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767899885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb624c592379734a84b04deb0b5312b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swimmingController: {fileID: 767899891}
+  centerEye: {fileID: 550497549}
+--- !u!114 &767899893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767899885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9addc1bd30865b4ebe233bd41f07858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &770021081
 GameObject:
   m_ObjectHideFlags: 0

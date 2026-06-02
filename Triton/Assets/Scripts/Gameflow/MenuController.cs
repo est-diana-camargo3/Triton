@@ -1,28 +1,43 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
     [Header("Canvas del menú")]
     public GameObject panelMenu;
 
+    [Header("Selector de modo de locomoción")]
+    public Button botonBrazadas;
+    public Button botonJoystick;
+
+    [Header("Colores del selector")]
+    public Color colorActivo   = new Color(0.20f, 0.60f, 1.00f, 1f); // azul
+    public Color colorInactivo = new Color(0.25f, 0.25f, 0.25f, 1f); // gris
+
     // ── Observer ────────────────────────────────────────────────────
 
     private void OnEnable()
     {
-        GameFlowManager.OnEstadoCambio += ManejarCambioEstado;
+        GameFlowManager.OnEstadoCambio       += ManejarCambioEstado;
+        LocomotionManager.OnModoChanged      += ActualizarVisuales;
     }
 
     private void OnDisable()
     {
-        GameFlowManager.OnEstadoCambio -= ManejarCambioEstado;
+        GameFlowManager.OnEstadoCambio       -= ManejarCambioEstado;
+        LocomotionManager.OnModoChanged      -= ActualizarVisuales;
     }
 
     // ── Inicialización ──────────────────────────────────────────────
 
     private void Start()
     {
-        // La escena arranca en menú
         MostrarMenu(true);
+
+        // Reflejar preferencia guardada en los botones
+        LocomotionMode modoGuardado = LocomotionManager.Instance?.ModoActual
+                                      ?? LocomotionMode.Brazadas;
+        ActualizarVisuales(modoGuardado);
     }
 
     // ── Observer ────────────────────────────────────────────────────
@@ -35,7 +50,6 @@ public class MenuController : MonoBehaviour
                 MostrarMenu(true);
                 break;
 
-            // En cualquier otro estado el menú desaparece
             case GameState.CinematicIntro:
             case GameState.LoadingGameplay:
             case GameState.CinematicEnding:
@@ -44,27 +58,49 @@ public class MenuController : MonoBehaviour
         }
     }
 
-    // ── API de botones ──────────────────────────────────────────────
+    // ── Botones de gameplay ─────────────────────────────────────────
 
-    // Asignar al botón "Jugar" en el Inspector (OnClick)
     public void OnBotonJugar()
     {
-        Debug.Log("[MENU] Jugar presionado");
+        Debug.Log("[MENU] Jugar");
         GameFlowManager.Instance.IniciarJuego();
     }
 
-    // Asignar al botón "Salir" en el Inspector (OnClick)
     public void OnBotonSalir()
     {
-        Debug.Log("[MENU] Salir presionado");
+        Debug.Log("[MENU] Salir");
         GameFlowManager.Instance.SalirJuego();
+    }
+
+    // ── Selector de locomoción ──────────────────────────────────────
+
+    public void OnBotonSeleccionarBrazadas()
+    {
+        LocomotionManager.Instance.SetModo(LocomotionMode.Brazadas);
+    }
+
+    public void OnBotonSeleccionarJoystick()
+    {
+        LocomotionManager.Instance.SetModo(LocomotionMode.Joystick);
+    }
+
+    // ── Visual del selector ─────────────────────────────────────────
+
+    private void ActualizarVisuales(LocomotionMode modo)
+    {
+        if (botonBrazadas != null)
+            botonBrazadas.GetComponent<Image>().color =
+                modo == LocomotionMode.Brazadas ? colorActivo : colorInactivo;
+
+        if (botonJoystick != null)
+            botonJoystick.GetComponent<Image>().color =
+                modo == LocomotionMode.Joystick ? colorActivo : colorInactivo;
     }
 
     // ── Utilidad ────────────────────────────────────────────────────
 
     private void MostrarMenu(bool mostrar)
     {
-        if (panelMenu != null)
-            panelMenu.SetActive(mostrar);
+        if (panelMenu != null) panelMenu.SetActive(mostrar);
     }
 }

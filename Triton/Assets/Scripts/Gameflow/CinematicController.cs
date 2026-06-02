@@ -46,6 +46,17 @@ public class CinematicController : MonoBehaviour
         // Empezar con fade negro
         SetFade(1f);
     }
+    
+    private void Update()
+    {
+    #if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Space))
+            StartCoroutine(ReproducirVideo(archivoIntro));
+    
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            StartCoroutine(ReproducirVideo(archivoEndingA));
+    #endif
+    }
 
     // ── Observer ────────────────────────────────────────────────────
 
