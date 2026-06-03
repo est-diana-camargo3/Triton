@@ -33,6 +33,12 @@
             "exited": true
         },
         {
+            "deviceId": "230YC01DB001N0",
+            "name": "com.oculus.os.clearactivity",
+            "processId": 14390,
+            "exited": false
+        },
+        {
             "deviceId": "1WMHHA4BZ42211",
             "name": "com.oculus.shellenv",
             "processId": 3049,
