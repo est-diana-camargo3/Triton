@@ -17,5 +17,5 @@ MonoBehaviour:
   lineaDosCarta: {fileID: 0}
   lineaTresCartas: {fileID: 0}
   lineasRandom: []
-  lineaAlEntrarTrigger: {fileID: 0}
-  lineaAlCerrarConCarta: {fileID: 0}
+  lineaAlEntrarTrigger: {fileID: 8300000, guid: 92e03d592d53b9f488c36c894ad9d798, type: 3}
+  lineaAlCerrarConCarta: {fileID: 8300000, guid: 3794498134f4dc74b964cee4e919c10d, type: 3}

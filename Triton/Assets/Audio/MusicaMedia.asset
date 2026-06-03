@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MusicaMedia
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 97500a58ddb680b4796d19578d7331f5, type: 3}
-  volume: 0.8
+  volume: 4
   pitch: 1
   randomPitchRange: 0
   randomVolumeRange: 0

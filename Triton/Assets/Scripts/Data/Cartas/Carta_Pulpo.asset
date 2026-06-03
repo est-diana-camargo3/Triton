@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164623add489cd2409cd5b62e655f2fc, type: 3}
   m_Name: Carta_Pulpo
   m_EditorClassIdentifier: 
-  cartaID: 3
+  cartaID: 1
   nombreCarta: 
   iconoCarta: {fileID: 0}

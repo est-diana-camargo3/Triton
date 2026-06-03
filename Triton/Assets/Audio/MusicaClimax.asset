@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MusicaClimax
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 80f86387dcfc2ee47a9e07b79f96e3bb, type: 3}
-  volume: 0.8
+  volume: 4
   pitch: 1
   randomPitchRange: 0
   randomVolumeRange: 0

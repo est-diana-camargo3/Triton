@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c058aa725d56334f91b96b254c04e34, type: 3}
   m_Name: Dialogo_Pulpo
   m_EditorClassIdentifier: 
-  lineaCeroCartas: {fileID: 0}
-  lineaUnaCarta: {fileID: 0}
+  lineaCeroCartas: {fileID: 8300000, guid: 54e579e8e1a18f243a2c3b36118693b7, type: 3}
+  lineaUnaCarta: {fileID: 8300000, guid: 54e579e8e1a18f243a2c3b36118693b7, type: 3}
   lineaDosCarta: {fileID: 0}
   lineaTresCartas: {fileID: 0}
-  lineasRandom: []
+  lineasRandom:
+  - {fileID: 8300000, guid: b778fc2bfa100df4494b1b7efa93d8ef, type: 3}
+  - {fileID: 8300000, guid: 048bb744a976e664a82e1e7fd9a0cca0, type: 3}
   lineaAlEntrarTrigger: {fileID: 0}
   lineaAlCerrarConCarta: {fileID: 0}
