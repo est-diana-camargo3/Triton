@@ -14,6 +14,9 @@ public class MenuController : MonoBehaviour
     public Color colorActivo   = new Color(0.20f, 0.60f, 1.00f, 1f); // azul
     public Color colorInactivo = new Color(0.25f, 0.25f, 0.25f, 1f); // gris
 
+    [Header("Navegación")]
+    public MenuNavigator navegador;
+    
     // ── Observer ────────────────────────────────────────────────────
 
     private void OnEnable()
@@ -102,5 +105,9 @@ public class MenuController : MonoBehaviour
     private void MostrarMenu(bool mostrar)
     {
         if (panelMenu != null) panelMenu.SetActive(mostrar);
+
+        // Resetear selección cada vez que el menú aparece
+        if (mostrar && navegador != null)
+            navegador.ResetSeleccion();
     }
 }

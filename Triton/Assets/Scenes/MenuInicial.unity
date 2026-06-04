@@ -10317,6 +10317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1010967276}
   - component: {fileID: 1010967277}
+  - component: {fileID: 1010967278}
   m_Layer: 0
   m_Name: MenuController
   m_TagString: Untagged
@@ -10356,6 +10357,32 @@ MonoBehaviour:
   botonJoystick: {fileID: 1406433236}
   colorActivo: {r: 0.2, g: 0.6, b: 1, a: 1}
   colorInactivo: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+  navegador: {fileID: 1010967278}
+--- !u!114 &1010967278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010967275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26fd0cd85b915bc4eaf45d38439ade6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - label: Brazadas
+    button: {fileID: 754496022}
+  - label: Joystick
+    button: {fileID: 1406433236}
+  - label: Jugar
+    button: {fileID: 850526929}
+  - label: Salir
+    button: {fileID: 1916623644}
+  colorSeleccionado: {r: 0, g: 0.7, b: 0.78, a: 1}
+  colorNormal: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+  cooldownNavegacion: 0.25
+  umbralThumbstick: 0.5
 --- !u!1 &1014301101
 GameObject:
   m_ObjectHideFlags: 0
