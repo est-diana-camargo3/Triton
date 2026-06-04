@@ -1,82 +1,89 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
+
 public class PlacementStateManager : MonoBehaviour
 {
     public static PlacementStateManager Instance { get; private set; }
 
     public static event Action<int> OnCartaColocada;
-    
-    // Qué carta está en cada cofre (índice 0-2, Ninguna si está vacío)
-    private CartaID[] _estadoCofres = new CartaID[3];
 
-    // Qué ID de carta corresponde a cada cofre (se asigna en el Inspector vía ChestController)
-    // Índice 0 = cofre que espera Tridente, índice 1 = cofre que espera Ballena, etc.
-    // Esto lo registran los propios ChestController al inicializarse
-    private CartaID[] _idEsperadoPorCofre = new CartaID[3];
+    // Clave: índice del cofre → carta que tiene actualmente
+    private Dictionary<int, CartaID> _estadoCofres = new();
+
+    // Clave: índice del cofre → carta que espera (registrado por cada ChestController)
+    private Dictionary<int, CartaID> _idEsperadoPorCofre = new();
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        // Estado inicial: ningún cofre ocupado
-        for (int i = 0; i < 3; i++)
-            _estadoCofres[i] = CartaID.Ninguna;
     }
 
-    // Llamado por ChestController al inicializarse para registrar qué carta espera
+    // Llamado por cada ChestController al inicializarse
+    // Ahora acepta cualquier índice — 0 a N cofres
     public void RegistrarCofre(int indiceCofre, CartaID idEsperado)
     {
-        if (indiceCofre < 0 || indiceCofre >= 3) return;
         _idEsperadoPorCofre[indiceCofre] = idEsperado;
+        _estadoCofres[indiceCofre] = CartaID.Ninguna;
+        Debug.Log($"[PLACEMENT] Cofre {indiceCofre} registrado, espera: {idEsperado}");
     }
 
-    // Llamado por ChestController cuando el jugador coloca una carta
     public void ColocarCarta(int indiceCofre, CartaID idCarta)
     {
-        if (indiceCofre < 0 || indiceCofre >= 3) return;
+        if (!_estadoCofres.ContainsKey(indiceCofre)) return;
         _estadoCofres[indiceCofre] = idCarta;
-        
+
+        Debug.Log($"[PLACEMENT] Cofre {indiceCofre} recibió: {idCarta} | Cartas totales: {CartasColocadas()}/3");
+
+        OnCartaColocada?.Invoke(CartasColocadas());
+
         if (TodosLosCofresLlenos())
             GameFlowManager.Instance.OnTodosCofresLlenos();
-
-        Debug.Log($"[PLACEMENT] Cofre {indiceCofre} recibió carta: {idCarta}");
-        OnCartaColocada?.Invoke(CartasColocadas());
     }
 
-    // Llamado por ChestController cuando el jugador retira una carta
     public void RetirarCarta(int indiceCofre)
     {
-        if (indiceCofre < 0 || indiceCofre >= 3) return;
+        if (!_estadoCofres.ContainsKey(indiceCofre)) return;
         _estadoCofres[indiceCofre] = CartaID.Ninguna;
 
-        Debug.Log($"[PLACEMENT] Cofre {indiceCofre} vaciado");
+        Debug.Log($"[PLACEMENT] Cofre {indiceCofre} vaciado | Cartas totales: {CartasColocadas()}/3");
+
         OnCartaColocada?.Invoke(CartasColocadas());
     }
 
-    // Consulta si los 3 cofres de carta tienen algo (no necesariamente correcto)
+    // Las 3 cartas fueron colocadas en ALGÚN cofre — no importa cuál
     public bool TodosLosCofresLlenos()
     {
-        for (int i = 0; i < 3; i++)
-            if (_estadoCofres[i] == CartaID.Ninguna) return false;
-        return true;
+        return CartasColocadas() >= 3;
     }
 
-    // Cuenta cartas correctamente colocadas y devuelve el final correspondiente
+    // Cuántas cartas hay colocadas en total (sin importar si están bien o mal)
+    public int CartasColocadas()
+    {
+        int contador = 0;
+        foreach (var kvp in _estadoCofres)
+            if (kvp.Value != CartaID.Ninguna) contador++;
+        return contador;
+    }
+
+    // Cuántas cartas están en el cofre correcto
     public EndingType ResolverFinal()
     {
         int correctas = 0;
 
-        for (int i = 0; i < 3; i++)
+        foreach (var kvp in _estadoCofres)
         {
-            if (_estadoCofres[i] != CartaID.Ninguna &&
-                _estadoCofres[i] == _idEsperadoPorCofre[i])
+            int indice = kvp.Key;
+            CartaID cartaColocada = kvp.Value;
+
+            if (cartaColocada != CartaID.Ninguna &&
+                _idEsperadoPorCofre.TryGetValue(indice, out CartaID esperada) &&
+                cartaColocada == esperada)
+            {
                 correctas++;
+            }
         }
 
         Debug.Log($"[ENDING] Cartas correctas: {correctas}/3");
@@ -87,13 +94,5 @@ public class PlacementStateManager : MonoBehaviour
             2 => EndingType.Final_B,
             _ => EndingType.Final_C
         };
-    }
-    // Devuelve cuántos cofres tienen una carta (sin importar si es correcta)
-    public int CartasColocadas()
-    {
-        int contador = 0;
-        for (int i = 0; i < 3; i++)
-            if (_estadoCofres[i] != CartaID.Ninguna) contador++;
-        return contador;
     }
 }

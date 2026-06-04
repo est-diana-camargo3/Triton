@@ -65,8 +65,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.737369
-  m_Center: {x: -0.29236323, y: -0.74296916, z: -0.0000012947052}
+  m_Radius: 2.2215807
+  m_Center: {x: -0.19888385, y: -0.74296916, z: -0.0000012809749}
 --- !u!1001 &4992597586377144660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,13 +199,13 @@ MonoBehaviour:
   snapPoint: {fileID: 7855348561984098729}
   animator: {fileID: 8489397336438374760}
   grabbableEnZona: {fileID: 0}
-  radioInteraccion: 9
+  radioInteraccion: 60
   audioSource: {fileID: 8627402624244185764}
-  sonidoAbrir: {fileID: 0}
-  sonidoCerrar: {fileID: 0}
-  sonidoCartaColocada: {fileID: 0}
-  sonidoCartaRetirada: {fileID: 0}
-  sonidoCoffeOcupado: {fileID: 0}
+  sonidoAbrir: {fileID: 8300000, guid: e1d85f8240a13e74f974adc235bfda0e, type: 3}
+  sonidoCerrar: {fileID: 8300000, guid: 3a45e5a48afca1844b9f42f34c2a0f12, type: 3}
+  sonidoCartaColocada: {fileID: 8300000, guid: 3e4423148aaf12846b25b4626cedbbf1, type: 3}
+  sonidoCartaRetirada: {fileID: 8300000, guid: 227e7b5a5dcd2b449bc134b15a28e3e5, type: 3}
+  sonidoCoffeOcupado: {fileID: 8300000, guid: cd0917c930bdf304aa9532b9450117c1, type: 3}
   dialogoCofre: {fileID: 11400000, guid: 180a9e8393fafcb4d888bcf286a40677, type: 2}
 --- !u!82 &8627402624244185764
 AudioSource:
