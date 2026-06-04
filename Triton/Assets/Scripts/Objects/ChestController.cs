@@ -63,13 +63,27 @@ public class ChestController : MonoBehaviour
         // Leer joystick izquierdo solo si el jugador está en zona
         if (!_jugadorEnZona) return;
         if (_estado == EstadoCofre.EnTransicion) return; 
+        
+        // Botón X del control izquierdo — toggle del cofre
+        if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.LTouch))
+            ToggleCofre();
+    }
+    private void ToggleCofre()
+    {
+        if (_estado == EstadoCofre.EnTransicion) return;
 
-        float ejeY = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y;
+        switch (_estado)
+        {
+            case EstadoCofre.CerradoVacio:
+            case EstadoCofre.CerradoOcupado:
+                IntentarAbrir();
+                break;
 
-        if (ejeY > 0.7f)
-            IntentarAbrir();
-        else if (ejeY < -0.7f)
-            IntentarCerrar();
+            case EstadoCofre.AbiertoVacio:
+            case EstadoCofre.AbiertoOcupado:
+                IntentarCerrar();
+                break;
+        }
     }
 
     private void OnJugadorEntroEnZona()

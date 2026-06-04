@@ -44,6 +44,21 @@ public class SwimmingController : MonoBehaviour
     private bool      wasMoving      = false;
     private bool      trailActive    = false;
 
+    private void OnEnable()
+    {
+        LocomotionManager.OnModoChanged += ManejarCambioModo;
+    }
+
+    private void OnDisable()
+    {
+        LocomotionManager.OnModoChanged -= ManejarCambioModo;
+    }
+
+    private void ManejarCambioModo(LocomotionMode modo)
+    {
+        // Solo log — el guard en FixedUpdate hace el trabajo real
+        Debug.Log($"[SWIM] Modo cambió a {modo}, fuerzas de brazada: {modo == LocomotionMode.Brazadas}");
+    }
     void Start()
     {
         rb            = GetComponent<Rigidbody>();
@@ -60,8 +75,13 @@ public class SwimmingController : MonoBehaviour
 
     void FixedUpdate()
     {
-        ApplyHandForce(leftHand,  "Left");
-        ApplyHandForce(rightHand, "Right");
+        // Solo aplicar fuerzas de brazada en modo Brazadas
+        // El trail VFX y el speed cap corren siempre — funcionan por velocidad, no por input
+        if (LocomotionManager.Instance?.ModoActual == LocomotionMode.Brazadas)
+        {
+            ApplyHandForce(leftHand,  "Left");
+            ApplyHandForce(rightHand, "Right");
+        }
 
         if (rb.velocity.magnitude > maxSpeed)
             rb.velocity = rb.velocity.normalized * maxSpeed;
@@ -70,7 +90,7 @@ public class SwimmingController : MonoBehaviour
         leftInPowerPhase  = leftHand  != null && leftHand.isPowerPhase;
         rightInPowerPhase = rightHand != null && rightHand.isPowerPhase;
 
-        HandleTrailAndEndSFX();
+        HandleTrailAndEndSFX(); 
     }
 
     void ApplyHandForce(StrokeDetector hand, string side)

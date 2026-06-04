@@ -14,7 +14,7 @@ public class GameFlowManager : MonoBehaviour
     public GameState EstadoActual { get; private set; } = GameState.Menu;
 
     // ── Nombres de escenas ──────────────────────────────────────────
-    private const string ESCENA_CINEMATICA = "Cinematica";
+    private const string ESCENA_CINEMATICA = "MenuInicial";
     private const string ESCENA_GAMEPLAY   = "Gameplay";
 
     // ── Resultado del ending, necesario al volver a escena Cinematica

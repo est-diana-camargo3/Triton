@@ -29,8 +29,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Mixer Groups")]
     [SerializeField] private AudioMixerGroup sfxGroup;
-
-    public SoundData oceano;
+    
     public SoundData brazadas;
     public SoundData cargandoBrazada;
     public SoundData Linterna;
@@ -71,11 +70,6 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         InitPool();
-    }
-
-    private void Start()
-    {
-        PlayAmbience(oceano);
     }
 
     /// <summary>

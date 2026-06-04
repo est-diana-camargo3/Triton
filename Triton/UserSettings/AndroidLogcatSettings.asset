@@ -10,27 +10,51 @@
     "m_KnownProcessesForSerialization": [
         {
             "deviceId": "230YC01DB001N0",
-            "name": "com.DefaultCompany.Triton",
-            "processId": 14916,
+            "name": "com.oculus.systemux:SystemUX",
+            "processId": 4304,
             "exited": true
         },
         {
             "deviceId": "230YC01DB001N0",
-            "name": "com.DefaultCompany.Triton",
-            "processId": 16078,
-            "exited": true
-        },
-        {
-            "deviceId": "230YC01DB001N0",
-            "name": "com.DefaultCompany.Triton",
-            "processId": 17270,
+            "name": "com.oculus.os.clearactivity",
+            "processId": 14390,
             "exited": true
         },
         {
             "deviceId": "230YC01DB001N0",
             "name": "com.oculus.systemux:SystemUX",
-            "processId": 4304,
+            "processId": 4545,
+            "exited": false
+        },
+        {
+            "deviceId": "230YC01DB001N0",
+            "name": "com.DefaultCompany.Triton",
+            "processId": 8975,
             "exited": true
+        },
+        {
+            "deviceId": "230YC01DB001N0",
+            "name": "com.oculus.os.clearactivity",
+            "processId": 11222,
+            "exited": false
+        },
+        {
+            "deviceId": "230YC01DB001N0",
+            "name": "com.oculus.panelapp.settings",
+            "processId": 4457,
+            "exited": false
+        },
+        {
+            "deviceId": "230YC01DB001N0",
+            "name": "com.DefaultCompany.Triton",
+            "processId": 7063,
+            "exited": true
+        },
+        {
+            "deviceId": "230YC01DB001N0",
+            "name": "com.oculus.panelapp.library:SystemBar",
+            "processId": 17346,
+            "exited": false
         },
         {
             "deviceId": "1WMHHA4BZ42211",

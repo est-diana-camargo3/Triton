@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c058aa725d56334f91b96b254c04e34, type: 3}
+  m_Name: Dialogo_Ballena
+  m_EditorClassIdentifier: 
+  lineaCeroCartas: {fileID: 8300000, guid: 9e1ffb6d75a2a7e4ca971eb773e37f79, type: 3}
+  lineaUnaCarta: {fileID: 8300000, guid: 9e1ffb6d75a2a7e4ca971eb773e37f79, type: 3}
+  lineaDosCarta: {fileID: 8300000, guid: f182e30ddbe81b3488c16a99b7cf1d6b, type: 3}
+  lineaTresCartas: {fileID: 8300000, guid: 182c0e2212d73de41994031673d63834, type: 3}
+  lineasRandom:
+  - {fileID: 8300000, guid: 421e6197646d1d44ba6b9d1e384c28ae, type: 3}
+  - {fileID: 8300000, guid: a37d49b7835ae4d47a0cdc31b3ade436, type: 3}
+  - {fileID: 8300000, guid: d069bee7a0fc21a4ba2d107c5424deb8, type: 3}
+  lineaAlEntrarTrigger: {fileID: 0}
+  lineaAlCerrarConCarta: {fileID: 0}

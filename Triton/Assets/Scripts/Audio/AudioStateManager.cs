@@ -6,7 +6,7 @@ public class AudioStateManager : MonoBehaviour
     public SoundData ambienteMenu;
     public SoundData ambienteGameplay;
 
-    [Header("Música adaptativa — buscar en Pixabay o Uppbeat")]
+    [Header("Música adaptativa")]
     [Tooltip("0-1 cartas colocadas — tranquila, exploratoria")]
     public SoundData musicaCalmada;
 
